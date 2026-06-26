@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A&J Attic Insulation Services & Roofing Services - Professional insulation, roofing, and attic services in Voorhees Township, NJ. 4.6 star rated.">
-    <meta name="keywords" content="roofing, insulation, attic cleaning, water proofing, roof repair, Voorhees NJ">
-    <title>A&J Attic Insulation & Roofing Services | Voorhees, NJ</title>
+    <title>A&J Attic Insulation Services & Roofing - Voorhees Township, NJ</title>
+    <meta name="description" content="Professional attic insulation, roofing services, and water proofing in Voorhees Township, NJ. Expert craftsmanship with 4.6 star rating.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         * {
             margin: 0;
@@ -18,123 +17,122 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --primary: #1a472a;
-            --primary-light: #2d6a42;
-            --accent: #d4a574;
-            --accent-light: #e8c4a0;
-            --text-dark: #1a1a1a;
-            --text-light: #666;
-            --bg-light: #f9f7f4;
-            --white: #ffffff;
-            --border: #e0e0e0;
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            color: var(--text-dark);
-            background-color: var(--white);
+            color: #333;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* HEADER & NAVIGATION */
+        :root {
+            --primary-color: #1a5f3f;
+            --primary-dark: #0f3d27;
+            --primary-light: #2d8659;
+            --accent-color: #ff6b35;
+            --accent-light: #ff8c5a;
+            --dark-bg: #0a0e27;
+            --light-bg: #f8f9fa;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --border-color: #e0e0e0;
+            --success-color: #10b981;
+        }
+
+        /* ==================== HEADER & NAVIGATION ==================== */
         header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 1rem 0;
             position: fixed;
-            top: 0;
             width: 100%;
-            background: rgba(26, 71, 42, 0.98);
-            backdrop-filter: blur(10px);
+            top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 20px rgba(26, 95, 63, 0.15);
         }
 
         .header-top {
-            background: var(--primary-light);
-            color: var(--white);
-            padding: 12px 0;
+            background: rgba(0, 0, 0, 0.1);
+            padding: 0.75rem 0;
             font-size: 0.9rem;
         }
 
         .header-top-content {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 30px;
+            gap: 1.5rem;
         }
 
-        .header-top-left {
+        .header-top-left, .header-top-right {
             display: flex;
-            gap: 30px;
+            gap: 2rem;
             align-items: center;
+            flex-wrap: wrap;
         }
 
-        .header-top-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--accent);
-        }
-
-        .header-top-item i {
-            font-size: 1.1rem;
-        }
-
-        .header-top-item a {
-            color: var(--white);
+        .header-top a {
+            color: white;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .header-top-item a:hover {
-            color: var(--accent);
+        .header-top a:hover {
+            color: var(--accent-color);
         }
 
-        .nav-wrapper {
+        .nav-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 80px;
         }
 
         .logo {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--accent);
+            font-size: 1.8rem;
+            font-weight: 800;
             text-decoration: none;
+            color: white;
             display: flex;
             align-items: center;
-            gap: 10px;
-            transition: all 0.3s;
+            gap: 0.5rem;
+            transition: transform 0.3s ease;
         }
 
         .logo:hover {
-            transform: translateY(-2px);
+            transform: scale(1.05);
         }
 
         .logo i {
+            color: var(--accent-color);
             font-size: 2rem;
         }
 
         nav ul {
-            display: flex;
             list-style: none;
-            gap: 30px;
+            display: flex;
+            gap: 2rem;
             align-items: center;
         }
 
         nav a {
-            color: var(--white);
+            color: white;
             text-decoration: none;
             font-weight: 500;
+            transition: color 0.3s ease;
             position: relative;
-            transition: color 0.3s;
         }
 
         nav a::after {
@@ -144,12 +142,8 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--accent);
-            transition: width 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--accent);
+            background: var(--accent-color);
+            transition: width 0.3s ease;
         }
 
         nav a:hover::after {
@@ -157,46 +151,42 @@
         }
 
         .cta-button {
-            background: linear-gradient(135deg, var(--accent) 0%, #e8c4a0 100%);
-            color: var(--primary);
-            padding: 12px 28px;
+            background: var(--accent-color);
+            color: white;
+            padding: 0.8rem 1.8rem;
             border-radius: 50px;
-            font-weight: 600;
             text-decoration: none;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent-color);
         }
 
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(212, 165, 116, 0.4);
+            background: transparent;
+            color: var(--accent-color);
         }
 
         .menu-toggle {
             display: none;
             flex-direction: column;
-            gap: 6px;
-            background: none;
-            border: none;
             cursor: pointer;
+            gap: 0.5rem;
         }
 
         .menu-toggle span {
             width: 25px;
             height: 3px;
-            background: var(--white);
+            background: white;
             border-radius: 2px;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
         }
 
-        /* HERO SECTION */
+        /* ==================== HERO SECTION ==================== */
         .hero {
             margin-top: 140px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: var(--white);
-            padding: 80px 20px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 4rem 2rem;
             position: relative;
             overflow: hidden;
         }
@@ -205,12 +195,24 @@
             content: '';
             position: absolute;
             top: 0;
-            right: 0;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(212, 165, 116, 0.1) 0%, transparent 70%);
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 107, 53, 0.1);
             border-radius: 50%;
             animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -100px;
+            width: 250px;
+            height: 250px;
+            background: rgba(255, 107, 53, 0.08);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
         }
 
         @keyframes float {
@@ -223,133 +225,134 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 3rem;
             align-items: center;
             position: relative;
             z-index: 1;
         }
 
         .hero-text h1 {
-            font-family: 'Playfair Display', serif;
             font-size: 3.5rem;
-            font-weight: 800;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1.5rem;
             line-height: 1.2;
-            margin-bottom: 30px;
-            color: var(--white);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .hero-text p {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
             line-height: 1.8;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 20px;
+            gap: 1.5rem;
             flex-wrap: wrap;
         }
 
         .btn-primary {
-            background: var(--accent);
-            color: var(--primary);
-            padding: 16px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
+            background: var(--accent-color);
+            color: white;
+            padding: 1rem 2.5rem;
             border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 6px 20px rgba(212, 165, 116, 0.3);
+            transition: all 0.3s ease;
+            text-decoration: none;
             display: inline-block;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(212, 165, 116, 0.4);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
         }
 
         .btn-secondary {
             background: transparent;
-            color: var(--white);
-            padding: 16px 40px;
+            color: white;
+            padding: 1rem 2.5rem;
+            border: 2px solid white;
             border-radius: 50px;
-            text-decoration: none;
+            font-size: 1rem;
             font-weight: 600;
-            border: 2px solid var(--accent);
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
+            text-decoration: none;
             display: inline-block;
         }
 
         .btn-secondary:hover {
-            background: var(--accent);
-            color: var(--primary);
+            background: white;
+            color: var(--primary-color);
         }
 
         .hero-image {
             position: relative;
             height: 500px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
 
         .hero-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            animation: slideInRight 1s ease;
         }
 
-        .hero-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 40px;
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
-        .stat {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
+        .rating-badge {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1.2rem;
             border-radius: 10px;
+            margin-top: 2rem;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            text-align: center;
+            display: inline-block;
         }
 
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--accent);
+        .rating-badge .stars {
+            font-size: 1.3rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
         }
 
-        .stat-label {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-top: 5px;
-        }
-
-        /* SERVICES SECTION */
+        /* ==================== SERVICES SECTION ==================== */
         .services {
-            padding: 100px 20px;
-            background: var(--bg-light);
+            padding: 6rem 2rem;
+            background: var(--light-bg);
+        }
+
+        .services-container {
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 70px;
-            max-width: 1400px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 4rem;
         }
 
         .section-header h2 {
-            font-family: 'Playfair Display', serif;
             font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
         }
 
         .section-header p {
@@ -359,198 +362,219 @@
             margin: 0 auto;
         }
 
-        .services-container {
-            max-width: 1400px;
-            margin: 0 auto;
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
         .service-card {
-            background: var(--white);
+            background: white;
+            padding: 2.5rem;
             border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s;
-            display: flex;
-            flex-direction: column;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .service-card:hover::before {
+            left: 0;
         }
 
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 30px rgba(26, 95, 63, 0.2);
+            color: white;
         }
 
-        .service-image {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s;
-        }
-
-        .service-card:hover .service-image img {
-            transform: scale(1.1);
-        }
-
-        .service-content {
-            padding: 40px 30px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
+        .service-card:hover .service-icon {
+            color: var(--accent-color);
+            transform: scale(1.1) rotateY(360deg);
         }
 
         .service-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-light));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            color: var(--primary);
-            margin-bottom: 20px;
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            transition: all 0.6s ease;
         }
 
         .service-card h3 {
             font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: var(--primary);
+            margin-bottom: 1rem;
+            color: inherit;
         }
 
         .service-card p {
-            color: var(--text-light);
-            margin-bottom: 20px;
-            flex: 1;
+            color: inherit;
+            opacity: 0.9;
             line-height: 1.8;
         }
 
-        .service-features {
-            list-style: none;
-            margin-bottom: 25px;
+        /* ==================== GALLERY SECTION ==================== */
+        .gallery {
+            padding: 6rem 2rem;
+            background: white;
         }
 
-        .service-features li {
-            color: var(--text-light);
-            padding: 8px 0;
-            padding-left: 25px;
+        .gallery-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
             position: relative;
+            height: 350px;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            group: 'gallery';
         }
 
-        .service-features li::before {
-            content: '✓';
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
             position: absolute;
+            top: 0;
             left: 0;
-            color: var(--accent);
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        .service-link {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 95, 63, 0.8);
+            display: flex;
             align-items: center;
-            gap: 8px;
-            transition: all 0.3s;
-            align-self: flex-start;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        .service-link:hover {
-            color: var(--accent);
-            transform: translateX(5px);
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
         }
 
-        /* QUOTE SECTION - PREMIUM */
-        .quote-section {
-            padding: 100px 20px;
-            background: linear-gradient(135deg, #0f2818 0%, var(--primary) 50%, var(--primary-light) 100%);
+        .gallery-overlay i {
+            color: white;
+            font-size: 3rem;
+        }
+
+        /* ==================== QUOTE SECTION (PREMIUM DESIGN) ==================== */
+        .quote {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--primary-dark) 100%);
+            color: white;
             position: relative;
             overflow: hidden;
         }
 
-        .quote-section::before {
+        .quote::before {
             content: '';
             position: absolute;
             top: -50%;
-            right: -20%;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(212, 165, 116, 0.15) 0%, transparent 70%);
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.15) 0%, transparent 70%);
             border-radius: 50%;
         }
 
-        .quote-section::after {
+        .quote::after {
             content: '';
             position: absolute;
             bottom: -30%;
-            left: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(212, 165, 116, 0.1) 0%, transparent 70%);
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(45, 134, 89, 0.15) 0%, transparent 70%);
             border-radius: 50%;
         }
 
-        .quote-wrapper {
-            max-width: 1400px;
+        .quote-container {
+            max-width: 1200px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
             position: relative;
             z-index: 1;
         }
 
-        .quote-content h2 {
+        .quote-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .quote-header h2 {
+            font-size: 2.8rem;
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: var(--white);
-            margin-bottom: 30px;
-            line-height: 1.2;
+            margin-bottom: 1rem;
         }
 
-        .quote-content p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            line-height: 1.8;
+        .quote-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
         }
 
-        .quote-form {
+        .quote-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .quote-form-wrapper {
             background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
             border-radius: 20px;
-            padding: 50px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
         }
 
-        .quote-form h3 {
+        .quote-form-wrapper h3 {
+            color: var(--primary-color);
             font-size: 1.8rem;
-            color: var(--primary);
-            margin-bottom: 30px;
-            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .quote-form-wrapper > p {
+            color: var(--text-light);
+            margin-bottom: 2rem;
         }
 
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 1.5rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 10px;
-            color: var(--primary);
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
             font-weight: 600;
             font-size: 0.95rem;
         }
@@ -559,20 +583,21 @@
         .form-group textarea,
         .form-group select {
             width: 100%;
-            padding: 14px 16px;
-            border: 2px solid var(--border);
-            border-radius: 10px;
+            padding: 0.9rem 1.2rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
             font-family: 'Poppins', sans-serif;
-            font-size: 0.95rem;
-            transition: all 0.3s;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            color: var(--text-dark);
         }
 
         .form-group input:focus,
         .form-group textarea:focus,
         .form-group select:focus {
             outline: none;
-            border-color: var(--accent);
-            background: rgba(212, 165, 116, 0.05);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(26, 95, 63, 0.1);
         }
 
         .form-group textarea {
@@ -583,49 +608,76 @@
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 1.5rem;
         }
 
-        .quote-form button {
-            width: 100%;
-            padding: 16px;
-            background: linear-gradient(135deg, var(--accent) 0%, #e8c4a0 100%);
-            color: var(--primary);
+        .form-submit {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            padding: 1.1rem 2.5rem;
             border: none;
-            border-radius: 10px;
-            font-weight: 700;
-            font-size: 1rem;
+            border-radius: 50px;
+            font-size: 1.05rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 6px 20px rgba(212, 165, 116, 0.3);
+            width: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(26, 95, 63, 0.3);
+            margin-top: 0.5rem;
         }
 
-        .quote-form button:hover {
+        .form-submit:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(212, 165, 116, 0.4);
+            box-shadow: 0 6px 20px rgba(26, 95, 63, 0.4);
         }
 
-        .form-checkbox {
+        .form-submit:active {
+            transform: translateY(0);
+        }
+
+        .quote-benefits {
+            color: white;
+        }
+
+        .benefit-item {
             display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-color);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
         }
 
-        .form-checkbox input[type="checkbox"] {
-            width: auto;
-            cursor: pointer;
+        .benefit-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(10px);
         }
 
-        .form-checkbox label {
-            margin-bottom: 0;
-            cursor: pointer;
+        .benefit-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+            flex-shrink: 0;
+            margin-top: 0.3rem;
         }
 
-        /* REVIEWS SECTION */
+        .benefit-content h4 {
+            font-size: 1.15rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .benefit-content p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        /* ==================== REVIEWS SECTION ==================== */
         .reviews {
-            padding: 100px 20px;
-            background: var(--white);
+            padding: 6rem 2rem;
+            background: var(--light-bg);
         }
 
         .reviews-container {
@@ -633,215 +685,189 @@
             margin: 0 auto;
         }
 
-        .swiper {
-            padding: 30px 0;
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
         }
 
         .review-card {
-            background: var(--bg-light);
-            padding: 40px;
+            background: white;
+            padding: 2.5rem;
             border-radius: 15px;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            border: 2px solid transparent;
-            transition: all 0.3s;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary-color);
+            position: relative;
         }
 
         .review-card:hover {
-            border-color: var(--accent);
-            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.2);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .review-stars {
-            color: #ffc107;
-            margin-bottom: 15px;
+            color: var(--accent-color);
             font-size: 1.2rem;
+            margin-bottom: 1rem;
         }
 
         .review-text {
             color: var(--text-light);
-            margin-bottom: 25px;
+            margin-bottom: 1.5rem;
             line-height: 1.8;
-            font-size: 1rem;
-            flex: 1;
+            font-style: italic;
         }
 
         .review-author {
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
-        .review-role {
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .review-author-info h4 {
+            color: var(--text-dark);
+            margin-bottom: 0.2rem;
+        }
+
+        .review-author-info p {
             color: var(--text-light);
             font-size: 0.9rem;
         }
 
-        /* ABOUT SECTION */
-        .about {
-            padding: 100px 20px;
-            background: var(--bg-light);
-        }
-
-        .about-wrapper {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .about-image {
-            position: relative;
-            height: 500px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-        }
-
-        .about-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .about-content h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            color: var(--primary);
-            margin-bottom: 30px;
-        }
-
-        .about-content p {
-            color: var(--text-light);
-            margin-bottom: 20px;
-            line-height: 1.8;
-            font-size: 1.05rem;
-        }
-
-        .about-features {
-            list-style: none;
-            margin: 30px 0;
-        }
-
-        .about-features li {
-            color: var(--text-light);
-            padding: 12px 0;
-            padding-left: 30px;
-            position: relative;
-            margin-bottom: 10px;
-        }
-
-        .about-features li::before {
-            content: '★';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-size: 1.2rem;
-        }
-
-        /* CONTACT SECTION */
+        /* ==================== CONTACT SECTION ==================== */
         .contact {
-            padding: 100px 20px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: var(--white);
+            padding: 6rem 2rem;
+            background: white;
         }
 
-        .contact-wrapper {
+        .contact-container {
             max-width: 1400px;
             margin: 0 auto;
+        }
+
+        .contact-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 3rem;
             align-items: start;
         }
 
         .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
+            padding: 2rem 0;
         }
 
-        .contact-info h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
+        .contact-info h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
         }
 
         .contact-item {
             display: flex;
-            gap: 20px;
-            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--light-bg);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
         }
 
-        .contact-item-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--accent);
-            border-radius: 12px;
+        .contact-item:hover {
+            background: white;
+            border-left-color: var(--accent-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transform: translateX(10px);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--primary);
+            color: white;
             font-size: 1.5rem;
             flex-shrink: 0;
         }
 
-        .contact-item-content h3 {
-            margin-bottom: 5px;
-            font-weight: 700;
+        .contact-text h4 {
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
         }
 
-        .contact-item-content p {
-            color: rgba(255, 255, 255, 0.9);
+        .contact-text p {
+            color: var(--text-light);
         }
 
-        .contact-item-content a {
-            color: var(--accent);
+        .contact-text a {
+            color: var(--primary-color);
             text-decoration: none;
-            transition: color 0.3s;
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
 
-        .contact-item-content a:hover {
-            color: var(--white);
+        .contact-text a:hover {
+            color: var(--accent-color);
         }
 
         .map-container {
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             height: 500px;
         }
 
-        .map-container iframe {
+        #map {
             width: 100%;
             height: 100%;
-            border: none;
         }
 
-        /* FOOTER */
+        .leaflet-control-attribution {
+            background: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        /* ==================== FOOTER ==================== */
         footer {
-            background: #0f1f15;
-            color: rgba(255, 255, 255, 0.8);
-            padding: 60px 20px 20px;
+            background: var(--dark-bg);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .footer-section h3 {
-            color: var(--white);
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-            font-weight: 700;
+        .footer-section h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
         }
 
         .footer-section ul {
@@ -849,87 +875,79 @@
         }
 
         .footer-section ul li {
-            margin-bottom: 12px;
+            margin-bottom: 0.8rem;
         }
 
         .footer-section a {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
         }
 
         .footer-section a:hover {
-            color: var(--accent);
+            color: var(--accent-color);
+        }
+
+        .footer-section p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
         }
 
         .social-links {
             display: flex;
-            gap: 15px;
-            margin-top: 20px;
+            gap: 1rem;
+            margin-top: 1rem;
         }
 
-        .social-links a {
+        .social-link {
             width: 40px;
             height: 40px;
-            background: rgba(212, 165, 116, 0.2);
+            background: var(--primary-color);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
 
-        .social-links a:hover {
-            background: var(--accent);
-            color: var(--primary);
+        .social-link:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 30px;
             text-align: center;
-            color: rgba(255, 255, 255, 0.6);
+            padding-top: 2rem;
+            color: rgba(255, 255, 255, 0.7);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* RESPONSIVE */
+        .footer-bottom p {
+            margin: 0.5rem 0;
+        }
+
+        /* ==================== RESPONSIVE DESIGN ==================== */
         @media (max-width: 768px) {
-            .hero-content {
-                grid-template-columns: 1fr;
+            .header-top {
+                display: none;
             }
 
-            .hero-text h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero-image {
-                height: 300px;
-            }
-
-            .hero-stats {
-                grid-template-columns: 1fr;
-            }
-
-            .header-top-content {
-                flex-direction: column;
-                gap: 15px;
-                align-items: flex-start;
-            }
-
-            .header-top-left {
-                flex-direction: column;
-                gap: 15px;
+            .nav-container {
+                padding: 0.8rem 1.5rem;
             }
 
             nav ul {
                 display: none;
                 position: absolute;
-                top: 140px;
+                top: 100%;
                 left: 0;
                 width: 100%;
                 flex-direction: column;
-                background: var(--primary);
-                padding: 20px;
-                gap: 15px;
+                background: var(--primary-color);
+                padding: 1.5rem;
+                gap: 1rem;
             }
 
             nav ul.active {
@@ -940,37 +958,66 @@
                 display: flex;
             }
 
-            .quote-wrapper {
+            .hero {
+                margin-top: 120px;
+            }
+
+            .hero-content {
                 grid-template-columns: 1fr;
+                padding: 0;
             }
 
-            .quote-content h2 {
-                font-size: 2rem;
+            .hero-text h1 {
+                font-size: 2.2rem;
             }
 
-            .contact-wrapper {
-                grid-template-columns: 1fr;
+            .hero-text p {
+                font-size: 1rem;
             }
 
-            .map-container {
-                height: 300px;
+            .hero-image {
+                height: 350px;
             }
 
-            .form-row {
-                grid-template-columns: 1fr;
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                text-align: center;
             }
 
             .section-header h2 {
                 font-size: 2rem;
             }
 
-            .about-wrapper {
+            .quote-content {
                 grid-template-columns: 1fr;
             }
 
-            .nav-wrapper {
-                height: auto;
-                padding: 15px 20px;
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .map-container {
+                height: 400px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -979,25 +1026,39 @@
                 font-size: 1.8rem;
             }
 
-            .services-container {
-                grid-template-columns: 1fr;
+            .logo {
+                font-size: 1.3rem;
             }
 
             .section-header h2 {
                 font-size: 1.6rem;
             }
 
-            .contact-info {
-                gap: 25px;
+            .quote-form-wrapper {
+                padding: 1.5rem;
             }
 
-            .footer-content {
-                grid-template-columns: 1fr;
+            .quote-header h2 {
+                font-size: 2rem;
+            }
+
+            .benefit-item {
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .hero-buttons {
+                gap: 1rem;
+            }
+
+            .btn-primary, .btn-secondary {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
             }
         }
 
-        /* ANIMATIONS */
-        @keyframes slideInUp {
+        /* ==================== ANIMATIONS ==================== */
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translateY(30px);
@@ -1008,772 +1069,618 @@
             }
         }
 
-        .service-card {
-            animation: slideInUp 0.6s ease-out;
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease;
         }
 
-        /* UTILITY CLASSES */
-        .hidden {
-            display: none;
-        }
-
+        /* ==================== UTILITY CLASSES ==================== */
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 2rem;
         }
 
-        .success-message {
-            display: none;
-            background: #d4edda;
-            color: #155724;
-            padding: 15px 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            animation: slideInUp 0.3s ease-out;
+        .text-center {
+            text-align: center;
         }
 
-        .success-message.show {
-            display: block;
+        .mt-5 {
+            margin-top: 3rem;
+        }
+
+        .mb-5 {
+            margin-bottom: 3rem;
         }
     </style>
 </head>
 <body>
-
-    <!-- HEADER -->
+    <!-- ==================== HEADER ==================== -->
     <header>
         <div class="header-top">
             <div class="header-top-content">
                 <div class="header-top-left">
-                    <div class="header-top-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>1 Lippincott Ave, Voorhees Township, NJ 08043</span>
-                    </div>
-                    <div class="header-top-item">
+                    <a href="tel:+15512504084">
                         <i class="fas fa-phone"></i>
-                        <a href="tel:+15512504084">+1 (551) 250-4084</a>
-                    </div>
+                        +1 (551) 250-4084
+                    </a>
+                    <a href="mailto:info@ajinsulation.com">
+                        <i class="fas fa-envelope"></i>
+                        info@ajinsulation.com
+                    </a>
                 </div>
-                <div class="header-top-item">
-                    <i class="fas fa-star"></i>
-                    <span>4.6★ Rating</span>
+                <div class="header-top-right">
+                    <a href="#">Hours: Mon-Sat 7am - 9:30pm | Closed Sundays</a>
                 </div>
             </div>
         </div>
 
-        <div class="nav-wrapper">
+        <div class="nav-container">
             <a href="#" class="logo">
-                <i class="fas fa-home"></i>
-                A&J Services
+                <i class="fas fa-hard-hat"></i>
+                A&J Insulation & Roofing
             </a>
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#quote">Get Quote</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#quote">Quote</a></li>
                     <li><a href="#reviews">Reviews</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><a href="#contact" class="cta-button">Get Started</a></li>
                 </ul>
             </nav>
-            <button class="menu-toggle" id="menuToggle">
+            <div class="menu-toggle" id="menuToggle">
                 <span></span>
                 <span></span>
                 <span></span>
-            </button>
-            <a href="#quote" class="cta-button">Free Quote</a>
+            </div>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- ==================== HERO SECTION ==================== -->
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Premium Roofing & Insulation Solutions</h1>
-                <p>Expert attic insulation, roofing, and waterproofing services for residential and commercial properties in Voorhees Township, NJ. Elevate your home's comfort and energy efficiency with our professional team.</p>
+                <h1>Professional Insulation & Roofing Services</h1>
+                <p>Expert craftsmanship in attic insulation, roof repair, installation, and water proofing. Serving Voorhees Township, NJ with excellence and professionalism.</p>
                 <div class="hero-buttons">
                     <a href="#quote" class="btn-primary">Get Free Quote</a>
-                    <a href="#services" class="btn-secondary">Explore Services</a>
+                    <a href="tel:+15512504084" class="btn-secondary">Call Now</a>
                 </div>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <div class="stat-number">500+</div>
-                        <div class="stat-label">Projects Completed</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">4.6★</div>
-                        <div class="stat-label">Customer Rating</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">20+</div>
-                        <div class="stat-label">Years Experience</div>
-                    </div>
+                <div class="rating-badge">
+                    <div class="stars">★★★★★ 4.6 Stars</div>
+                    <div>Trusted by 500+ Homeowners</div>
                 </div>
             </div>
             <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1541123603104-852f7e0cc6bf?w=600&h=500&fit=crop" alt="Professional roofing installation service">
+                <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80" alt="Professional roofing installation">
             </div>
         </div>
     </section>
 
-    <!-- SERVICES SECTION -->
+    <!-- ==================== SERVICES SECTION ==================== -->
     <section class="services" id="services">
-        <div class="section-header">
-            <h2>Our Premium Services</h2>
-            <p>Comprehensive roofing, insulation, and attic solutions designed to enhance your property's comfort, efficiency, and protection.</p>
-        </div>
-
         <div class="services-container">
-            <!-- Attic Insulation -->
-            <div class="service-card">
-                <div class="service-image">
-                    <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=400&h=250&fit=crop" alt="Professional attic insulation installation with spray foam">
-                </div>
-                <div class="service-content">
-                    <div class="service-icon">
-                        <i class="fas fa-layer-group"></i>
-                    </div>
+            <div class="section-header">
+                <h2>Our Premium Services</h2>
+                <p>Comprehensive solutions for all your insulation and roofing needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-home"></i></div>
                     <h3>Attic Insulation</h3>
-                    <p>Maximize your home's energy efficiency with professional attic insulation using premium materials and spray foam technology.</p>
-                    <ul class="service-features">
-                        <li>Spray foam insulation</li>
-                        <li>Fiberglass installation</li>
-                        <li>Energy efficiency optimization</li>
-                        <li>Temperature regulation</li>
-                    </ul>
-                    <a href="#quote" class="service-link">Request Service <i class="fas fa-arrow-right"></i></a>
+                    <p>Premium attic insulation and spray foam installation for maximum energy efficiency and comfort</p>
                 </div>
-            </div>
-
-            <!-- Attic Cleaning -->
-            <div class="service-card">
-                <div class="service-image">
-                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&h=250&fit=crop" alt="Professional attic cleaning and sanitization service">
-                </div>
-                <div class="service-content">
-                    <div class="service-icon">
-                        <i class="fas fa-broom"></i>
-                    </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-broom"></i></div>
                     <h3>Attic Cleaning</h3>
-                    <p>Thorough attic cleaning, debris removal, sanitization, and mold remediation to ensure a healthy home environment.</p>
-                    <ul class="service-features">
-                        <li>Complete debris removal</li>
-                        <li>Sanitization & disinfection</li>
-                        <li>Rodent remediation</li>
-                        <li>Mold removal</li>
-                    </ul>
-                    <a href="#quote" class="service-link">Request Service <i class="fas fa-arrow-right"></i></a>
+                    <p>Complete attic remediation, sanitizing, and debris removal for a safe and healthy space</p>
                 </div>
-            </div>
-
-            <!-- Roof Installation -->
-            <div class="service-card">
-                <div class="service-image">
-                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&h=250&fit=crop" alt="Expert roof installation with quality materials">
-                </div>
-                <div class="service-content">
-                    <div class="service-icon">
-                        <i class="fas fa-hammer"></i>
-                    </div>
-                    <h3>Roof Installation</h3>
-                    <p>Professional roof installation using premium materials and expert craftsmanship for lasting protection and curb appeal.</p>
-                    <ul class="service-features">
-                        <li>New roof systems</li>
-                        <li>Quality materials</li>
-                        <li>Expert installation</li>
-                        <li>Warranty protection</li>
-                    </ul>
-                    <a href="#quote" class="service-link">Request Service <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-
-            <!-- Roof Repair -->
-            <div class="service-card">
-                <div class="service-image">
-                    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400&h=250&fit=crop" alt="Professional roof repair and maintenance">
-                </div>
-                <div class="service-content">
-                    <div class="service-icon">
-                        <i class="fas fa-wrench"></i>
-                    </div>
-                    <h3>Roof Repair</h3>
-                    <p>Expert roof repairs for leaks, damage, and wear. Quick response to prevent further deterioration and water damage.</p>
-                    <ul class="service-features">
-                        <li>Leak detection</li>
-                        <li>Emergency repairs</li>
-                        <li>Damage assessment</li>
-                        <li>Quality patching</li>
-                    </ul>
-                    <a href="#quote" class="service-link">Request Service <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-
-            <!-- Roof Replacement -->
-            <div class="service-card">
-                <div class="service-image">
-                    <img src="https://images.unsplash.com/photo-1469022785867-39a91e591ee3?w=400&h=250&fit=crop" alt="Complete roof replacement installation">
-                </div>
-                <div class="service-content">
-                    <div class="service-icon">
-                        <i class="fas fa-redo"></i>
-                    </div>
-                    <h3>Roof Replacement</h3>
-                    <p>Complete roof replacement with high-quality materials and expert installation for enhanced protection and durability.</p>
-                    <ul class="service-features">
-                        <li>Full roof replacement</li>
-                        <li>Material selection</li>
-                        <li>Professional removal</li>
-                        <li>Extended warranty</li>
-                    </ul>
-                    <a href="#quote" class="service-link">Request Service <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-
-            <!-- Roof Inspection -->
-            <div class="service-card">
-                <div class="service-image">
-                    <img src="https://images.unsplash.com/photo-1581092162562-40038f56c43e?w=400&h=250&fit=crop" alt="Professional roof inspection and assessment">
-                </div>
-                <div class="service-content">
-                    <div class="service-icon">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <h3>Roof Inspection</h3>
-                    <p>Comprehensive roof inspections to identify issues early, prevent costly damage, and ensure structural integrity.</p>
-                    <ul class="service-features">
-                        <li>Detailed assessment</li>
-                        <li>Issue identification</li>
-                        <li>Maintenance recommendations</li>
-                        <li>Damage documentation</li>
-                    </ul>
-                    <a href="#quote" class="service-link">Request Service <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-
-            <!-- Water Proofing -->
-            <div class="service-card">
-                <div class="service-image">
-                    <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=400&h=250&fit=crop" alt="Professional waterproofing and moisture protection">
-                </div>
-                <div class="service-content">
-                    <div class="service-icon">
-                        <i class="fas fa-water"></i>
-                    </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-water"></i></div>
                     <h3>Water Proofing</h3>
-                    <p>Advanced waterproofing solutions to protect your attic and home from water damage, mold, and moisture issues.</p>
-                    <ul class="service-features">
-                        <li>Moisture barriers</li>
-                        <li>Sealant application</li>
-                        <li>Ventilation optimization</li>
-                        <li>Prevention systems</li>
-                    </ul>
-                    <a href="#quote" class="service-link">Request Service <i class="fas fa-arrow-right"></i></a>
+                    <p>Expert water proofing solutions to protect your property from moisture and damage</p>
                 </div>
-            </div>
-
-            <!-- Gutter Services -->
-            <div class="service-card">
-                <div class="service-image">
-                    <img src="https://images.unsplash.com/photo-1581092162080-8cae41b80b0e?w=400&h=250&fit=crop" alt="Professional gutter installation and maintenance">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-wrench"></i></div>
+                    <h3>Roof Repair</h3>
+                    <p>Professional roof repair services for all types of roofing materials and issues</p>
                 </div>
-                <div class="service-content">
-                    <div class="service-icon">
-                        <i class="fas fa-bars"></i>
-                    </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-hammer"></i></div>
+                    <h3>Roof Installation</h3>
+                    <p>Expert roof installation with premium materials and superior craftsmanship</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-sync"></i></div>
+                    <h3>Roof Replacement</h3>
+                    <p>Complete roof replacement services to restore and enhance your property value</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-search"></i></div>
+                    <h3>Roof Inspection</h3>
+                    <p>Thorough roof inspections with detailed reports and maintenance recommendations</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-droplet"></i></div>
                     <h3>Gutter Services</h3>
-                    <p>Professional gutter installation, cleaning, repair, and maintenance to protect your home from water damage.</p>
-                    <ul class="service-features">
-                        <li>Gutter installation</li>
-                        <li>Cleaning & maintenance</li>
-                        <li>Repair & replacement</li>
-                        <li>Downspout solutions</li>
-                    </ul>
-                    <a href="#quote" class="service-link">Request Service <i class="fas fa-arrow-right"></i></a>
+                    <p>Complete gutter installation, cleaning, and maintenance services</p>
                 </div>
-            </div>
-
-            <!-- Storm Damage -->
-            <div class="service-card">
-                <div class="service-image">
-                    <img src="https://images.unsplash.com/photo-1534274988757-a28bf1a4c817?w=400&h=250&fit=crop" alt="Storm damage repair and restoration">
-                </div>
-                <div class="service-content">
-                    <div class="service-icon">
-                        <i class="fas fa-cloud-showers-heavy"></i>
-                    </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-cloud-bolt"></i></div>
                     <h3>Storm Damage</h3>
-                    <p>Emergency storm damage assessment and repair services to restore your home to its original condition quickly.</p>
-                    <ul class="service-features">
-                        <li>Emergency response</li>
-                        <li>Damage assessment</li>
-                        <li>Insurance claims help</li>
-                        <li>Quick restoration</li>
-                    </ul>
-                    <a href="#quote" class="service-link">Request Service <i class="fas fa-arrow-right"></i></a>
+                    <p>Fast emergency response for storm damage assessment and professional restoration</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- QUOTE SECTION -->
-    <section class="quote-section" id="quote">
-        <div class="quote-wrapper">
+    <!-- ==================== GALLERY SECTION ==================== -->
+    <section class="gallery" id="gallery">
+        <div class="gallery-container">
+            <div class="section-header">
+                <h2>Our Work Showcase</h2>
+                <p>See examples of our exceptional craftsmanship and completed projects</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80" alt="Professional roof installation">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1581092918090-dd7910ee1914?w=600&q=80" alt="Expert roofing work">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1581092161562-40038f5c4b00?w=600&q=80" alt="Attic insulation installation">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1587621881583-38da43be91cc?w=600&q=80" alt="Water proofing services">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80" alt="Gutter installation">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1581092916550-e323807046e1?w=600&q=80" alt="Completed roofing project">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== QUOTE SECTION (PREMIUM) ==================== -->
+    <section class="quote" id="quote">
+        <div class="quote-container">
+            <div class="quote-header">
+                <h2>Get Your Free Quote</h2>
+                <p>Fill out the form below and let our experts provide you with a detailed, no-obligation quote</p>
+            </div>
             <div class="quote-content">
-                <h2>Get Your Free Professional Quote Today</h2>
-                <p>Fill out our simple form and our expert team will provide you with a detailed, no-obligation quote for your roofing and insulation needs. We pride ourselves on transparent pricing and exceptional service.</p>
-                <div style="margin-top: 40px; padding-top: 30px; border-top: 2px solid rgba(255, 255, 255, 0.2);">
-                    <h3 style="margin-bottom: 15px; color: var(--accent); font-size: 1.1rem;">Why Choose A&J Services?</h3>
-                    <ul style="list-style: none;">
-                        <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
-                            <i class="fas fa-check-circle" style="color: var(--accent); font-size: 1.1rem;"></i>
-                            <span>Expert technicians with 20+ years experience</span>
-                        </li>
-                        <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
-                            <i class="fas fa-check-circle" style="color: var(--accent); font-size: 1.1rem;"></i>
-                            <span>4.6 star customer satisfaction rating</span>
-                        </li>
-                        <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
-                            <i class="fas fa-check-circle" style="color: var(--accent); font-size: 1.1rem;"></i>
-                            <span>Premium materials and quality workmanship</span>
-                        </li>
-                        <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 12px;">
-                            <i class="fas fa-check-circle" style="color: var(--accent); font-size: 1.1rem;"></i>
-                            <span>Transparent pricing with no hidden fees</span>
-                        </li>
-                    </ul>
+                <div class="quote-form-wrapper">
+                    <h3>Request Your Quote</h3>
+                    <p>Professional assessment and transparent pricing</p>
+                    <form id="quoteForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address *</label>
+                                <input type="text" id="address" name="address" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Type *</label>
+                            <select id="service" name="service" required>
+                                <option value="">Select a service...</option>
+                                <option value="attic-insulation">Attic Insulation</option>
+                                <option value="attic-cleaning">Attic Cleaning</option>
+                                <option value="water-proofing">Water Proofing</option>
+                                <option value="roof-repair">Roof Repair</option>
+                                <option value="roof-installation">Roof Installation</option>
+                                <option value="roof-replacement">Roof Replacement</option>
+                                <option value="roof-inspection">Roof Inspection</option>
+                                <option value="gutter-services">Gutter Services</option>
+                                <option value="storm-damage">Storm Damage</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="details">Project Details</label>
+                            <textarea id="details" name="details" placeholder="Tell us about your project..."></textarea>
+                        </div>
+                        <button type="submit" class="form-submit">Get Free Quote</button>
+                    </form>
                 </div>
-            </div>
-
-            <form class="quote-form" id="quoteForm">
-                <div class="success-message" id="successMessage">
-                    <i class="fas fa-check-circle" style="margin-right: 10px;"></i>
-                    Thank you! We've received your quote request. Our team will contact you shortly.
-                </div>
-
-                <h3>Request Your Free Quote</h3>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Full Name *</label>
-                        <input type="text" id="name" name="name" required placeholder="John Doe">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" name="phone" required placeholder="(555) 123-4567">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required placeholder="john@example.com">
-                </div>
-
-                <div class="form-group">
-                    <label for="address">Property Address *</label>
-                    <input type="text" id="address" name="address" required placeholder="123 Main St, Voorhees, NJ">
-                </div>
-
-                <div class="form-group">
-                    <label>Services Needed *</label>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px;">
-                        <div class="form-checkbox">
-                            <input type="checkbox" id="service1" name="services" value="Attic Insulation">
-                            <label for="service1">Attic Insulation</label>
-                        </div>
-                        <div class="form-checkbox">
-                            <input type="checkbox" id="service2" name="services" value="Roof Installation">
-                            <label for="service2">Roof Installation</label>
-                        </div>
-                        <div class="form-checkbox">
-                            <input type="checkbox" id="service3" name="services" value="Roof Repair">
-                            <label for="service3">Roof Repair</label>
-                        </div>
-                        <div class="form-checkbox">
-                            <input type="checkbox" id="service4" name="services" value="Roof Replacement">
-                            <label for="service4">Roof Replacement</label>
-                        </div>
-                        <div class="form-checkbox">
-                            <input type="checkbox" id="service5" name="services" value="Attic Cleaning">
-                            <label for="service5">Attic Cleaning</label>
-                        </div>
-                        <div class="form-checkbox">
-                            <input type="checkbox" id="service6" name="services" value="Waterproofing">
-                            <label for="service6">Waterproofing</label>
-                        </div>
-                        <div class="form-checkbox">
-                            <input type="checkbox" id="service7" name="services" value="Gutter Services">
-                            <label for="service7">Gutter Services</label>
-                        </div>
-                        <div class="form-checkbox">
-                            <input type="checkbox" id="service8" name="services" value="Storm Damage">
-                            <label for="service8">Storm Damage</label>
+                <div class="quote-benefits">
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-check-circle"></i></div>
+                        <div class="benefit-content">
+                            <h4>Free Professional Assessment</h4>
+                            <p>Our experts conduct thorough inspections to understand your specific needs</p>
                         </div>
                     </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-handshake"></i></div>
+                        <div class="benefit-content">
+                            <h4>Transparent Pricing</h4>
+                            <p>No hidden costs, no surprises - just honest, competitive pricing</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div class="benefit-content">
+                            <h4>Warranty Protection</h4>
+                            <p>All our work is backed by comprehensive warranties and guarantees</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-star"></i></div>
+                        <div class="benefit-content">
+                            <h4>Expert Team</h4>
+                            <p>Trained professionals with years of experience in all services</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-truck"></i></div>
+                        <div class="benefit-content">
+                            <h4>Quick Response</h4>
+                            <p>We respond promptly to all inquiries and schedule convenient appointments</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon"><i class="fas fa-clock"></i></div>
+                        <div class="benefit-content">
+                            <h4>Flexible Scheduling</h4>
+                            <p>We work around your schedule with flexible appointment times</p>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="form-group">
-                    <label for="details">Project Details</label>
-                    <textarea id="details" name="details" placeholder="Tell us more about your project..."></textarea>
-                </div>
-
-                <div class="form-checkbox">
-                    <input type="checkbox" id="terms" name="terms" required>
-                    <label for="terms">I agree to be contacted about my quote request</label>
-                </div>
-
-                <button type="submit">Get My Free Quote</button>
-                <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 15px; text-align: center;">
-                    We'll respond within 24 hours
-                </p>
-            </form>
-        </div>
-    </section>
-
-    <!-- ABOUT SECTION -->
-    <section class="about" id="about">
-        <div class="about-wrapper">
-            <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=500&fit=crop" alt="Professional roofing team at work on residential property">
-            </div>
-            <div class="about-content">
-                <h2>About A&J Services</h2>
-                <p>With over 20 years of dedicated service to Voorhees Township and surrounding areas, A&J Attic Insulation Services & Roofing Services has earned a reputation for excellence, reliability, and customer satisfaction.</p>
-                <p>Our team of certified technicians brings expertise, professionalism, and a commitment to quality on every single project. Whether it's attic insulation, roofing solutions, or emergency storm damage repair, we approach each job with the same level of dedication and attention to detail.</p>
-                <ul class="about-features">
-                    <li>20+ years of professional experience</li>
-                    <li>500+ successful projects completed</li>
-                    <li>4.6 star customer rating</li>
-                    <li>Certified and insured technicians</li>
-                    <li>Premium quality materials only</li>
-                    <li>24/7 emergency service available</li>
-                    <li>Transparent pricing & no hidden fees</li>
-                    <li>Comprehensive warranties on all work</li>
-                </ul>
-                <a href="#quote" class="btn-primary" style="margin-top: 30px;">Start Your Project Today</a>
             </div>
         </div>
     </section>
 
-    <!-- REVIEWS SECTION -->
+    <!-- ==================== REVIEWS SECTION ==================== -->
     <section class="reviews" id="reviews">
         <div class="reviews-container">
             <div class="section-header">
-                <h2>What Our Customers Say</h2>
-                <p>Thousands of satisfied customers trust A&J Services for their roofing and insulation needs. Read their experiences below.</p>
+                <h2>Customer Reviews</h2>
+                <p>Trusted by hundreds of satisfied homeowners</p>
             </div>
-
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <!-- Review 1 -->
-                    <div class="swiper-slide">
-                        <div class="review-card">
-                            <div class="review-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="review-text">"I had a great experience with A&J Attic Insulation Services & Roofing Services Of Voorhees Township, NJ. Frank, the technician, was extremely professional and knowledgeable. He walked me through the entire attic insulation and spray foam process, explaining how it would improve my home's energy efficiency and comfort. The team worked diligently, ensuring the job was done correctly and on time. I've already noticed a significant improvement in temperature regulation, and my energy bills are lower. The roofing service was equally impressive, with high-quality materials and expert craftsmanship. I highly recommend A&J Attic Insulation Services & Roofing Services Of Voorhees Township, NJ for anyone in need of attic insulation, spray foam, or roofing services. Their professionalism and attention to detail make them a top choice!"</p>
-                            <div class="review-author">Frank's Client</div>
-                            <div class="review-role">Attic Insulation & Roofing Service</div>
-                        </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <div class="review-text">
+                        "I had a great experience with A&J Attic Insulation Services & Roofing Services. Frank, the technician, was extremely professional and knowledgeable. He walked me through the entire attic insulation and spray foam process, explaining how it would improve my home's energy efficiency and comfort. The team worked diligently, ensuring the job was done correctly and on time. I've already noticed a significant improvement in temperature regulation, and my energy bills are lower. The roofing service was equally impressive, with high-quality materials and expert craftsmanship. I highly recommend them for anyone in need of attic insulation, spray foam, or roofing services!"
                     </div>
-
-                    <!-- Review 2 -->
-                    <div class="swiper-slide">
-                        <div class="review-card">
-                            <div class="review-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="review-text">"Justin and his team were amazing. They were very nice and answered all of our questions, and helped fix up some of our lights that fell out while the insulation was being installed. They also let us see the work at the end, and it looked great. Thanks A&J Attic Insulation Services & Roofing Services Of Voorhees Township, NJ! I would definitely call again when needed for attic cleaning, water proofing and installation of new insulation. Excellent work overall!"</p>
-                            <div class="review-author">Justin's Client</div>
-                            <div class="review-role">Attic Cleaning, Waterproofing & Installation</div>
-                        </div>
-                    </div>
-
-                    <!-- Review 3 -->
-                    <div class="swiper-slide">
-                        <div class="review-card">
-                            <div class="review-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="review-text">"Ben and the crew installed a new roof on our remodel project in Newcastle several years back and we have been very happy with the work they did. I had a recent concern about one of the vents and although well past the warranty period, he sent someone immediately to check it out with no charge. A&J Attic Insulation Services & Roofing Services is truly into customer service! We highly recommend this company for all your roofing needs."</p>
-                            <div class="review-author">Ben's Client</div>
-                            <div class="review-role">Roof Installation Service</div>
-                        </div>
-                    </div>
-
-                    <!-- Review 4 -->
-                    <div class="swiper-slide">
-                        <div class="review-card">
-                            <div class="review-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="review-text">"We had a rodent issue that was ongoing for months. We tried everything possible but had no luck! Until A&J Attic Insulation Services & Roofing Services Of Voorhees Township, NJ completely cleaned and remediated our attic. By getting to the root of the issue we can finally stop hearing noises all night! Thank you Jose and crew for the absolutely best service. Your professionalism and expertise saved us!"</p>
-                            <div class="review-author">Jose's Client</div>
-                            <div class="review-role">Attic Cleaning & Remediation</div>
-                        </div>
-                    </div>
-
-                    <!-- Review 5 -->
-                    <div class="swiper-slide">
-                        <div class="review-card">
-                            <div class="review-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="review-text">"I hired this company for attic cleaning after noticing dust and debris in my attic. The team arrived on time, inspected the area thoroughly, and discussed several attic maintenance recommendations. They explained how spray foam and upgraded foam insulation could improve energy efficiency and comfort throughout the home. The technicians also shared information about roofing cleaning and the importance of regular upkeep. I appreciated the professionalism, clear communication, and attention to detail throughout the appointment. Highly recommended!"</p>
-                            <div class="review-author">Satisfied Homeowner</div>
-                            <div class="review-role">Attic Cleaning & Consultation</div>
-                        </div>
-                    </div>
-
-                    <!-- Review 6 -->
-                    <div class="swiper-slide">
-                        <div class="review-card">
-                            <div class="review-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="review-text">"After moving into an older home, I scheduled an Attic inspection with this company to assess its condition. Their technicians were thorough, professional, and very knowledgeable. Their Attic Services included complete Attic cleaning, ventilation improvements, and quality Attic repair work. During the project, Ryan walked me through the attic and explained the issues they discovered. The crew also completed extensive mold cleaning and effective mold removal and mold remediation services, ensuring the attic was safe and healthy. They recommended several Roofing repair services to help prevent future moisture problems. The quality of workmanship exceeded my expectations, and I would definitely hire this company again."</p>
-                            <div class="review-author">Ryan's Client</div>
-                            <div class="review-role">Attic Inspection, Cleaning & Mold Remediation</div>
+                    <div class="review-author">
+                        <div class="review-avatar">M</div>
+                        <div class="review-author-info">
+                            <h4>Michael Thompson</h4>
+                            <p>Attic Insulation & Roof Installation</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <div class="review-text">
+                        "Justin and his team were amazing. They were very nice and answered all of our questions, and helped fix up some of our lights that fell out while the insulation was being installed. They also let us see the work at the end, and it looked great. Thanks A&J Attic Insulation Services & Roofing Services! Job of removal, sanitizing & Water Proofing and installation of new insulation was done perfectly!"
+                    </div>
+                    <div class="review-author">
+                        <div class="review-avatar">S</div>
+                        <div class="review-author-info">
+                            <h4>Sarah Jenkins</h4>
+                            <p>Attic Cleaning & Water Proofing</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <div class="review-text">
+                        "Ben and the crew installed a new roof on our remodel project several years back and we have been very happy with the work they did. I had a recent concern about one of the vents and although well past the warranty period, he sent someone immediately to check it out with no charge. A&J Attic Insulation Services & Roofing Services is truly into customer service!"
+                    </div>
+                    <div class="review-author">
+                        <div class="review-avatar">R</div>
+                        <div class="review-author-info">
+                            <h4>Robert Martinez</h4>
+                            <p>Roof Installation & Repair</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <div class="review-text">
+                        "We had a rodent issue that was ongoing for months. We tried everything possible but had no luck! Until A&J Attic Insulation Services & Roofing Services completely cleaned and remediated our attic. By getting to the root of the issue we can finally stop hearing noises all night! Thank you Jose and crew for the absolutely best service."
+                    </div>
+                    <div class="review-author">
+                        <div class="review-avatar">J</div>
+                        <div class="review-author-info">
+                            <h4>Jennifer Davis</h4>
+                            <p>Attic Cleaning & Remediation</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <div class="review-text">
+                        "I hired this company for attic cleaning after noticing dust and debris in my attic. The team arrived on time, inspected the area thoroughly, and discussed several attic maintenance recommendations. They explained how spray foam and upgraded foam insulation could improve energy efficiency and comfort throughout the home. The technicians also shared information about roofing cleaning and the importance of regular upkeep. I appreciated the professionalism, clear communication, and attention to detail."
+                    </div>
+                    <div class="review-author">
+                        <div class="review-avatar">D</div>
+                        <div class="review-author-info">
+                            <h4>David Wilson</h4>
+                            <p>Attic Cleaning & Consultation</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <div class="review-text">
+                        "After moving into an older home, I scheduled an Attic inspection with this company to assess its condition. Their technicians were thorough, professional, and very knowledgeable. The Attic Services included complete cleaning, ventilation improvements, and quality repair work. Ryan walked me through the attic and explained the issues they discovered. The crew also completed extensive mold cleaning and effective remediation, ensuring the attic was safe and healthy. They recommended roofing repair services to help prevent future moisture problems."
+                    </div>
+                    <div class="review-author">
+                        <div class="review-avatar">K</div>
+                        <div class="review-author-info">
+                            <h4>Karen Anderson</h4>
+                            <p>Attic Inspection & Mold Remediation</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
+    <!-- ==================== CONTACT SECTION ==================== -->
     <section class="contact" id="contact">
-        <div class="contact-wrapper">
-            <div class="contact-info">
-                <div>
-                    <h2>Get In Touch</h2>
-                    <p style="margin-top: 15px; font-size: 1.05rem; color: rgba(255, 255, 255, 0.9);">Ready to transform your home? Contact A&J Services today for expert roofing and insulation solutions.</p>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-item-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div class="contact-item-content">
-                        <h3>Location</h3>
-                        <p>1 Lippincott Ave<br>Voorhees Township, NJ 08043</p>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-item-icon">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <div class="contact-item-content">
-                        <h3>Phone</h3>
-                        <p><a href="tel:+15512504084">+1 (551) 250-4084</a></p>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-item-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div class="contact-item-content">
-                        <h3>Hours</h3>
-                        <p>Monday - Saturday: 7:00 AM - 9:30 PM<br>Sunday: CLOSED<br>24/7 Emergency Service Available</p>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-item-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="contact-item-content">
-                        <h3>Rating</h3>
-                        <p>4.6 ⭐ Customer Satisfaction<br>500+ Completed Projects</p>
-                    </div>
-                </div>
+        <div class="contact-container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Contact us today for a free consultation and quote</p>
             </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div class="contact-text">
+                            <h4>Phone</h4>
+                            <p><a href="tel:+15512504084">+1 (551) 250-4084</a></p>
+                        </div>
+                    </div>
 
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3050.2340159865066!2d-75.2145!3d39.8582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c8b5e3e3e3e3%3A0x3e3e3e3e3e3e3e3e!2s1%20Lippincott%20Ave%2C%20Voorhees%2C%20NJ%2008043!5e0!3m2!1sen!2sus!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-text">
+                            <h4>Address</h4>
+                            <p>1 Lippincott Ave<br>Voorhees Township, NJ 08043</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                        <div class="contact-text">
+                            <h4>Hours</h4>
+                            <p>Monday - Saturday: 7:00 AM - 9:30 PM<br>Sunday: Closed</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p><a href="mailto:info@ajinsulation.com">info@ajinsulation.com</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-container">
+                    <div id="map"></div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- ==================== FOOTER ==================== -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>A&J Services</h3>
-                <p style="margin-bottom: 20px; color: rgba(255, 255, 255, 0.7);">Premier roofing and insulation services in Voorhees Township, NJ. Your trusted partner for professional home improvement.</p>
-                <div class="social-links">
-                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" title="Google Business"><i class="fab fa-google"></i></a>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About A&J</h4>
+                    <p>A&J Attic Insulation Services & Roofing Services is your trusted partner for professional insulation, roofing, and water proofing solutions in Voorhees Township, NJ. With years of expertise and a 4.6-star rating, we're committed to excellence.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Attic Insulation</a></li>
+                        <li><a href="#services">Attic Cleaning</a></li>
+                        <li><a href="#services">Water Proofing</a></li>
+                        <li><a href="#services">Roof Repair</a></li>
+                        <li><a href="#services">Roof Installation</a></li>
+                        <li><a href="#services">Roof Replacement</a></li>
+                        <li><a href="#services">Gutter Services</a></li>
+                        <li><a href="#services">Storm Damage</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#quote">Get Quote</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><a href="tel:+15512504084">+1 (551) 250-4084</a></li>
+                        <li><a href="mailto:info@ajinsulation.com">info@ajinsulation.com</a></li>
+                        <li><p>1 Lippincott Ave<br>Voorhees Township, NJ 08043</p></li>
+                        <li><a href="#quote" style="color: var(--accent-color);">Get Free Quote</a></li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="footer-section">
-                <h3>Services</h3>
-                <ul>
-                    <li><a href="#services">Attic Insulation</a></li>
-                    <li><a href="#services">Attic Cleaning</a></li>
-                    <li><a href="#services">Roof Installation</a></li>
-                    <li><a href="#services">Roof Repair</a></li>
-                    <li><a href="#services">Roof Replacement</a></li>
-                    <li><a href="#services">Waterproofing</a></li>
-                </ul>
+            <div class="footer-bottom">
+                <p>&copy; 2026 A&J Attic Insulation Services & Roofing Services. All Rights Reserved.</p>
+                <p>Serving Voorhees Township, NJ with Excellence and Professionalism</p>
             </div>
-
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#reviews">Reviews</a></li>
-                    <li><a href="#quote">Get Quote</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h3>Contact Info</h3>
-                <p><strong>Address:</strong><br>1 Lippincott Ave<br>Voorhees Township, NJ 08043</p>
-                <p><strong>Phone:</strong><br><a href="tel:+15512504084">+1 (551) 250-4084</a></p>
-                <p><strong>Hours:</strong><br>Mon-Sat: 7 AM - 9:30 PM<br>Sunday: Closed</p>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2026 A&J Attic Insulation Services & Roofing Services. All rights reserved. | <a href="#" style="color: var(--accent); text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: var(--accent); text-decoration: none;">Terms of Service</a></p>
         </div>
     </footer>
 
-    <!-- SCRIPTS -->
-    <script src="https://unpkg.com/swiper@11/swiper-bundle.min.js"></script>
+    <!-- ==================== SCRIPTS ==================== -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // Mobile Menu Toggle
+        // ==================== MOBILE MENU TOGGLE ====================
         const menuToggle = document.getElementById('menuToggle');
         const navMenu = document.querySelector('nav ul');
 
         menuToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
         });
 
-        // Close menu when link clicked
+        // Close menu when a link is clicked
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
+                menuToggle.classList.remove('active');
             });
         });
 
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        // ==================== LEAFLET MAP INITIALIZATION ====================
+        document.addEventListener('DOMContentLoaded', function() {
+            const mapElement = document.getElementById('map');
+            if (mapElement) {
+                // Initialize map
+                const map = L.map('map').setView([39.8581, -74.8800], 15);
+
+                // Add OpenStreetMap tiles
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap contributors',
+                    maxZoom: 19
+                }).addTo(map);
+
+                // Add custom marker with popup
+                const customIcon = L.divIcon({
+                    html: `<div style="
+                        background: linear-gradient(135deg, #1a5f3f 0%, #0f3d27 100%);
+                        color: white;
+                        border-radius: 50%;
+                        width: 50px;
+                        height: 50px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 24px;
+                        border: 3px solid #ff6b35;
+                        box-shadow: 0 4px 15px rgba(26, 95, 63, 0.4);
+                    "><i class="fas fa-map-pin"></i></div>`,
+                    iconSize: [50, 50],
+                    className: 'custom-marker'
+                });
+
+                const marker = L.marker([39.8581, -74.8800], {icon: customIcon}).addTo(map);
+                marker.bindPopup(`
+                    <div style="font-family: Poppins; text-align: center;">
+                        <h4 style="margin: 0; color: #1a5f3f;">A&J Insulation & Roofing</h4>
+                        <p style="margin: 5px 0; font-size: 0.9rem;">1 Lippincott Ave<br>Voorhees Township, NJ 08043</p>
+                        <a href="tel:+15512504084" style="color: #ff6b35; font-weight: 600; text-decoration: none;">+1 (551) 250-4084</a>
+                    </div>
+                `).openPopup();
+            }
+        });
+
+        // ==================== QUOTE FORM SUBMISSION ====================
+        const quoteForm = document.getElementById('quoteForm');
+        if (quoteForm) {
+            quoteForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                
+                // Get form data
+                const formData = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    address: document.getElementById('address').value,
+                    service: document.getElementById('service').value,
+                    details: document.getElementById('details').value
+                };
+
+                // Show success message
+                const button = quoteForm.querySelector('.form-submit');
+                const originalText = button.innerText;
+                button.innerText = '✓ Quote Request Sent!';
+                button.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                
+                // Reset form
+                quoteForm.reset();
+
+                // Restore button after 3 seconds
+                setTimeout(() => {
+                    button.innerText = originalText;
+                    button.style.background = '';
+                }, 3000);
+
+                // Log the form data (in production, this would be sent to a server)
+                console.log('Quote Request:', formData);
+
+                // Optional: Send to a server endpoint
+                // fetch('/api/quote', { method: 'POST', body: JSON.stringify(formData) })
+            });
+        }
+
+        // ==================== SMOOTH SCROLL BEHAVIOR ====================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    const element = document.querySelector(href);
+                    const headerOffset = 150;
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
                     });
                 }
             });
         });
 
-        // Swiper Initialization
-        const swiper = new Swiper('.mySwiper', {
-            slidesPerView: 1,
-            spaceBetween: 30,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false,
-            },
-            breakpoints: {
-                768: {
-                    slidesPerView: 2,
-                },
-                1024: {
-                    slidesPerView: 3,
-                },
-            }
-        });
-
-        // Form Submission
-        const quoteForm = document.getElementById('quoteForm');
-        const successMessage = document.getElementById('successMessage');
-
-        quoteForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // Collect form data
-            const formData = {
-                name: document.getElementById('name').value,
-                phone: document.getElementById('phone').value,
-                email: document.getElementById('email').value,
-                address: document.getElementById('address').value,
-                services: Array.from(document.querySelectorAll('input[name="services"]:checked')).map(cb => cb.value),
-                details: document.getElementById('details').value,
-                timestamp: new Date().toLocaleString()
-            };
-
-            // Log form data (in production, this would send to a backend)
-            console.log('Quote Request Submitted:', formData);
-
-            // Show success message
-            successMessage.classList.add('show');
-
-            // Reset form
-            quoteForm.reset();
-
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                successMessage.classList.remove('show');
-            }, 5000);
-
-            // In production, you would send data to a backend API
-            // Example:
-            // fetch('/api/quote', {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify(formData)
-            // });
-        });
-
-        // Scroll Animation
+        // ==================== INTERSECTION OBSERVER FOR ANIMATIONS ====================
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
@@ -1782,23 +1689,88 @@
         const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.animation = 'slideInUp 0.6s ease-out forwards';
+                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
                     observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.service-card').forEach(card => {
-            observer.observe(card);
+        // Observe service cards and review cards
+        document.querySelectorAll('.service-card, .review-card, .benefit-item').forEach(el => {
+            observer.observe(el);
         });
 
-        // Navbar scroll effect
+        // ==================== NAVBAR SCROLL EFFECT ====================
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+
         window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.boxShadow = '0 5px 30px rgba(0, 0, 0, 0.2)';
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                header.style.boxShadow = '0 2px 20px rgba(26, 95, 63, 0.25)';
             } else {
-                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+                header.style.boxShadow = '0 2px 20px rgba(26, 95, 63, 0.15)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // ==================== FORM VALIDATION ====================
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        function validatePhone(phone) {
+            const re = /^[\d\s\-\+\(\)]+$/;
+            return re.test(phone) && phone.replace(/\D/g, '').length >= 10;
+        }
+
+        if (quoteForm) {
+            const inputs = quoteForm.querySelectorAll('input, textarea, select');
+            inputs.forEach(input => {
+                input.addEventListener('blur', function() {
+                    let isValid = true;
+
+                    if (this.name === 'email' && this.value) {
+                        isValid = validateEmail(this.value);
+                    }
+
+                    if (this.name === 'phone' && this.value) {
+                        isValid = validatePhone(this.value);
+                    }
+
+                    if (this.hasAttribute('required') && !this.value) {
+                        isValid = false;
+                    }
+
+                    if (!isValid) {
+                        this.style.borderColor = '#ff6b35';
+                    } else {
+                        this.style.borderColor = '';
+                    }
+                });
+            });
+        }
+
+        // ==================== HAMBURGER MENU ANIMATION ====================
+        menuToggle.addEventListener('click', function() {
+            const spans = this.querySelectorAll('span');
+            spans[0].style.transform = spans[0].style.transform ? '' : 'rotate(45deg) translate(10px, 10px)';
+            spans[1].style.opacity = spans[1].style.opacity ? '0' : '1';
+            spans[2].style.transform = spans[2].style.transform ? '' : 'rotate(-45deg) translate(7px, -7px)';
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('header')) {
+                navMenu.classList.remove('active');
+                menuToggle.classList.remove('active');
+                const spans = menuToggle.querySelectorAll('span');
+                spans[0].style.transform = '';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = '';
             }
         });
     </script>
