@@ -26,6 +26,7 @@
             color: #333;
             line-height: 1.6;
             overflow-x: hidden;
+            background: #ffffff;
         }
 
         :root {
@@ -40,6 +41,7 @@
             --text-light: #666;
             --border-color: #e0e0e0;
             --success-color: #10b981;
+            --premium-gold: #d4af37;
         }
 
         /* ==================== HEADER & NAVIGATION ==================== */
@@ -51,13 +53,14 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(26, 95, 63, 0.15);
+            box-shadow: 0 4px 25px rgba(26, 95, 63, 0.2);
+            backdrop-filter: blur(10px);
         }
 
         .header-top {
-            background: rgba(0, 0, 0, 0.1);
-            padding: 0.75rem 0;
-            font-size: 0.9rem;
+            background: rgba(0, 0, 0, 0.15);
+            padding: 0.85rem 0;
+            font-size: 0.95rem;
         }
 
         .header-top-content {
@@ -68,12 +71,12 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 1.5rem;
+            gap: 2rem;
         }
 
         .header-top-left, .header-top-right {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             align-items: center;
             flex-wrap: wrap;
         }
@@ -81,34 +84,37 @@
         .header-top a {
             color: white;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
+            font-weight: 500;
         }
 
         .header-top a:hover {
             color: var(--accent-color);
+            transform: translateX(3px);
         }
 
         .nav-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 1rem 2rem;
+            padding: 1.2rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             font-weight: 800;
             text-decoration: none;
             color: white;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            transition: transform 0.3s ease;
+            gap: 0.7rem;
+            transition: all 0.3s ease;
+            letter-spacing: -0.5px;
         }
 
         .logo:hover {
@@ -117,22 +123,24 @@
 
         .logo i {
             color: var(--accent-color);
-            font-size: 2rem;
+            font-size: 2.2rem;
+            text-shadow: 0 2px 10px rgba(255, 107, 53, 0.3);
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             align-items: center;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
+            font-weight: 550;
+            transition: all 0.3s ease;
             position: relative;
+            font-size: 0.98rem;
         }
 
         nav a::after {
@@ -141,27 +149,36 @@
             bottom: -5px;
             left: 0;
             width: 0;
-            height: 2px;
-            background: var(--accent-color);
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-color), var(--accent-light));
             transition: width 0.3s ease;
+            border-radius: 2px;
         }
 
         nav a:hover::after {
             width: 100%;
         }
 
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
         .cta-button {
-            background: var(--accent-color);
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
             color: white;
-            padding: 0.8rem 1.8rem;
+            padding: 0.9rem 2rem;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             transition: all 0.3s ease;
             border: 2px solid var(--accent-color);
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+            cursor: pointer;
         }
 
         .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(255, 107, 53, 0.5);
             background: transparent;
             color: var(--accent-color);
         }
@@ -181,43 +198,46 @@
             transition: all 0.3s ease;
         }
 
-        /* ==================== HERO SECTION ==================== */
+        /* ==================== HERO SECTION (ENHANCED) ==================== */
         .hero {
             margin-top: 140px;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 50%, #0a2818 100%);
             color: white;
-            padding: 4rem 2rem;
+            padding: 5rem 2rem;
             position: relative;
             overflow: hidden;
+            min-height: 650px;
+            display: flex;
+            align-items: center;
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
+            top: -150px;
             right: -100px;
-            width: 300px;
-            height: 300px;
-            background: rgba(255, 107, 53, 0.1);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.15) 0%, transparent 70%);
             border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
+            animation: float 8s ease-in-out infinite;
         }
 
         .hero::after {
             content: '';
             position: absolute;
-            bottom: -50px;
-            left: -100px;
-            width: 250px;
-            height: 250px;
-            background: rgba(255, 107, 53, 0.08);
+            bottom: -100px;
+            left: -50px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(45, 134, 89, 0.12) 0%, transparent 70%);
             border-radius: 50%;
-            animation: float 8s ease-in-out infinite;
+            animation: float 10s ease-in-out infinite reverse;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(20px); }
+            50% { transform: translateY(30px); }
         }
 
         .hero-content {
@@ -225,117 +245,185 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 4rem;
             align-items: center;
             position: relative;
             z-index: 1;
         }
 
         .hero-text h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-family: 'Playfair Display', serif;
             margin-bottom: 1.5rem;
-            line-height: 1.2;
+            line-height: 1.15;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+            letter-spacing: -1px;
+            font-weight: 800;
+        }
+
+        .hero-text > .subtitle {
+            font-size: 1.4rem;
+            color: var(--accent-color);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .hero-text p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-            line-height: 1.8;
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.98;
+            line-height: 1.9;
+            letter-spacing: 0.3px;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 1.5rem;
+            gap: 2rem;
             flex-wrap: wrap;
+            margin-bottom: 2rem;
         }
 
         .btn-primary {
-            background: var(--accent-color);
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
             color: white;
-            padding: 1rem 2.5rem;
+            padding: 1.2rem 3rem;
             border: none;
             border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
+            font-size: 1.05rem;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
-            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+            letter-spacing: 0.5px;
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.6);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-2px);
         }
 
         .btn-secondary {
-            background: transparent;
+            background: rgba(255, 255, 255, 0.12);
             color: white;
-            padding: 1rem 2.5rem;
-            border: 2px solid white;
+            padding: 1.2rem 3rem;
+            border: 2.5px solid white;
             border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
+            font-size: 1.05rem;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
+            backdrop-filter: blur(10px);
+            letter-spacing: 0.5px;
         }
 
         .btn-secondary:hover {
             background: white;
             color: var(--primary-color);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
         }
 
-        .hero-image {
+        .hero-visual {
             position: relative;
             height: 500px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 107, 53, 0.1) 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), inset 0 0 30px rgba(255, 255, 255, 0.1);
         }
 
-        .hero-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            animation: slideInRight 1s ease;
+        .hero-visual::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.3), transparent);
+            border-radius: 50%;
+            animation: pulse 4s ease-in-out infinite;
         }
 
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .visual-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .visual-icon {
+            font-size: 5rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+            animation: bounce 3s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .visual-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+            color: white;
+            font-weight: 700;
+        }
+
+        .visual-text p {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin: 0;
         }
 
         .rating-badge {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 1.2rem;
-            border-radius: 10px;
-            margin-top: 2rem;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.12);
+            padding: 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
             display: inline-block;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
 
         .rating-badge .stars {
-            font-size: 1.3rem;
-            color: var(--accent-color);
-            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+            color: var(--premium-gold);
+            margin-bottom: 0.8rem;
+            letter-spacing: 2px;
         }
 
-        /* ==================== SERVICES SECTION ==================== */
+        .rating-badge p {
+            margin: 0;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        /* ==================== SERVICES SECTION (ENHANCED) ==================== */
         .services {
-            padding: 6rem 2rem;
-            background: var(--light-bg);
+            padding: 8rem 2rem;
+            background: linear-gradient(180deg, #ffffff 0%, var(--light-bg) 100%);
+            position: relative;
         }
 
         .services-container {
@@ -345,37 +433,48 @@
 
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
         }
 
-        .section-header h2 {
-            font-size: 2.8rem;
-            font-family: 'Playfair Display', serif;
-            color: var(--primary-color);
+        .section-header .section-label {
+            color: var(--accent-color);
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             margin-bottom: 1rem;
         }
 
+        .section-header h2 {
+            font-size: 3.2rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
         .section-header p {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: var(--text-light);
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
+            line-height: 1.8;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
         }
 
         .service-card {
             background: white;
-            padding: 2.5rem;
-            border-radius: 15px;
+            padding: 3rem;
+            border-radius: 18px;
             text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            border: 1px solid var(--border-color);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border: 2px solid transparent;
             cursor: pointer;
             position: relative;
             overflow: hidden;
@@ -389,7 +488,7 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-            transition: left 0.3s ease;
+            transition: left 0.4s ease;
             z-index: -1;
         }
 
@@ -398,99 +497,120 @@
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(26, 95, 63, 0.2);
+            transform: translateY(-15px);
+            box-shadow: 0 15px 40px rgba(26, 95, 63, 0.25);
             color: white;
-        }
-
-        .service-card:hover .service-icon {
-            color: var(--accent-color);
-            transform: scale(1.1) rotateY(360deg);
+            border-color: var(--accent-color);
         }
 
         .service-icon {
-            font-size: 3.5rem;
+            font-size: 4rem;
             color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            transition: all 0.6s ease;
+            margin-bottom: 2rem;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: inline-block;
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, rgba(26, 95, 63, 0.1), rgba(255, 107, 53, 0.1));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-card:hover .service-icon {
+            color: white;
+            transform: scale(1.2) rotateY(360deg);
+            background: rgba(255, 255, 255, 0.2);
         }
 
         .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-size: 1.6rem;
+            margin-bottom: 1.2rem;
             color: inherit;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
         .service-card p {
             color: inherit;
             opacity: 0.9;
-            line-height: 1.8;
+            line-height: 1.9;
+            font-size: 1rem;
         }
 
-        /* ==================== GALLERY SECTION ==================== */
-        .gallery {
+        .service-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 5px;
+            background: var(--accent-color);
+            transition: width 0.4s ease;
+        }
+
+        .service-card:hover::after {
+            width: 100%;
+        }
+
+        /* ==================== STATS SECTION ==================== */
+        .stats {
             padding: 6rem 2rem;
-            background: white;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
         }
 
-        .gallery-container {
+        .stats::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .stats-container {
             max-width: 1400px;
             margin: 0 auto;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .gallery-item {
             position: relative;
-            height: 350px;
-            border-radius: 15px;
-            overflow: hidden;
-            cursor: pointer;
-            group: 'gallery';
+            z-index: 1;
         }
 
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.1);
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
         }
 
-        .gallery-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(26, 95, 63, 0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
         }
 
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
+        .stat-label {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
-        .gallery-overlay i {
-            color: white;
-            font-size: 3rem;
-        }
-
-        /* ==================== QUOTE SECTION (PREMIUM DESIGN) ==================== */
+        /* ==================== QUOTE SECTION (ULTRA PREMIUM) ==================== */
         .quote {
             padding: 8rem 2rem;
-            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--primary-dark) 100%);
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--primary-dark) 50%, #1a3d2e 100%);
             color: white;
             position: relative;
             overflow: hidden;
@@ -501,10 +621,11 @@
             position: absolute;
             top: -50%;
             right: -10%;
-            width: 500px;
-            height: 500px;
+            width: 600px;
+            height: 600px;
             background: radial-gradient(circle, rgba(255, 107, 53, 0.15) 0%, transparent 70%);
             border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
         }
 
         .quote::after {
@@ -512,10 +633,11 @@
             position: absolute;
             bottom: -30%;
             left: -5%;
-            width: 400px;
-            height: 400px;
+            width: 500px;
+            height: 500px;
             background: radial-gradient(circle, rgba(45, 134, 89, 0.15) 0%, transparent 70%);
             border-radius: 50%;
+            animation: float 10s ease-in-out infinite reverse;
         }
 
         .quote-container {
@@ -531,65 +653,90 @@
         }
 
         .quote-header h2 {
-            font-size: 2.8rem;
+            font-size: 3.2rem;
             font-family: 'Playfair Display', serif;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
         }
 
         .quote-header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
+            font-size: 1.25rem;
+            opacity: 0.95;
+            letter-spacing: 0.3px;
         }
 
         .quote-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
+            gap: 4rem;
+            align-items: start;
         }
 
         .quote-form-wrapper {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.98);
+            padding: 3.5rem;
+            border-radius: 25px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-form-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color), var(--primary-light));
         }
 
         .quote-form-wrapper h3 {
             color: var(--primary-color);
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-bottom: 0.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
         .quote-form-wrapper > p {
             color: var(--text-light);
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            font-weight: 500;
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.7rem;
             color: var(--text-dark);
-            font-weight: 600;
-            font-size: 0.95rem;
+            font-weight: 700;
+            font-size: 0.98rem;
+            letter-spacing: 0.3px;
         }
 
         .form-group input,
         .form-group textarea,
         .form-group select {
             width: 100%;
-            padding: 0.9rem 1.2rem;
+            padding: 1.1rem 1.5rem;
             border: 2px solid var(--border-color);
-            border-radius: 8px;
+            border-radius: 12px;
             font-family: 'Poppins', sans-serif;
             font-size: 1rem;
             transition: all 0.3s ease;
             color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #999;
         }
 
         .form-group input:focus,
@@ -597,42 +744,45 @@
         .form-group select:focus {
             outline: none;
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(26, 95, 63, 0.1);
+            box-shadow: 0 0 0 4px rgba(26, 95, 63, 0.15);
+            background: rgba(26, 95, 63, 0.02);
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 120px;
+            min-height: 140px;
         }
 
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
+            gap: 1.8rem;
         }
 
         .form-submit {
             background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
             color: white;
-            padding: 1.1rem 2.5rem;
+            padding: 1.3rem 3rem;
             border: none;
             border-radius: 50px;
-            font-size: 1.05rem;
-            font-weight: 600;
+            font-size: 1.1rem;
+            font-weight: 700;
             cursor: pointer;
             width: 100%;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(26, 95, 63, 0.3);
-            margin-top: 0.5rem;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 6px 20px rgba(26, 95, 63, 0.3);
+            margin-top: 1rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
         .form-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(26, 95, 63, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(26, 95, 63, 0.5);
         }
 
         .form-submit:active {
-            transform: translateY(0);
+            transform: translateY(-2px);
         }
 
         .quote-benefits {
@@ -642,42 +792,47 @@
         .benefit-item {
             display: flex;
             align-items: flex-start;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border-left: 4px solid var(--accent-color);
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid var(--accent-color);
             backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 2px solid transparent;
         }
 
         .benefit-item:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateX(15px);
+            border-color: var(--accent-color);
         }
 
         .benefit-icon {
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: var(--accent-color);
             flex-shrink: 0;
-            margin-top: 0.3rem;
+            margin-top: 0.2rem;
         }
 
         .benefit-content h4 {
-            font-size: 1.15rem;
-            margin-bottom: 0.3rem;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
         }
 
         .benefit-content p {
-            opacity: 0.9;
-            font-size: 0.95rem;
+            opacity: 0.92;
+            font-size: 0.98rem;
+            line-height: 1.7;
         }
 
-        /* ==================== REVIEWS SECTION ==================== */
+        /* ==================== REVIEWS SECTION (ENHANCED) ==================== */
         .reviews {
-            padding: 6rem 2rem;
-            background: var(--light-bg);
+            padding: 8rem 2rem;
+            background: linear-gradient(180deg, var(--light-bg) 0%, #ffffff 100%);
         }
 
         .reviews-container {
@@ -687,70 +842,92 @@
 
         .reviews-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2.5rem;
         }
 
         .review-card {
             background: white;
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            border-top: 4px solid var(--primary-color);
+            padding: 3rem;
+            border-radius: 18px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border-top: 5px solid var(--primary-color);
             position: relative;
+            overflow: hidden;
+        }
+
+        .review-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            right: 0;
+            font-size: 8rem;
+            color: var(--accent-color);
+            opacity: 0.1;
+            font-family: 'Playfair Display', serif;
         }
 
         .review-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-12px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            border-top-color: var(--accent-color);
         }
 
         .review-stars {
-            color: var(--accent-color);
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
+            color: var(--premium-gold);
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
         }
 
         .review-text {
             color: var(--text-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
+            margin-bottom: 2rem;
+            line-height: 1.9;
             font-style: italic;
+            position: relative;
+            z-index: 1;
         }
 
         .review-author {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 1.2rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--border-color);
         }
 
         .review-avatar {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-weight: bold;
-            font-size: 1.3rem;
+            font-weight: 800;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(26, 95, 63, 0.3);
+            flex-shrink: 0;
         }
 
         .review-author-info h4 {
             color: var(--text-dark);
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.3rem;
+            font-weight: 700;
         }
 
         .review-author-info p {
             color: var(--text-light);
             font-size: 0.9rem;
+            font-weight: 500;
         }
 
         /* ==================== CONTACT SECTION ==================== */
         .contact {
-            padding: 6rem 2rem;
+            padding: 8rem 2rem;
             background: white;
         }
 
@@ -762,7 +939,7 @@
         .contact-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 4rem;
             align-items: start;
         }
 
@@ -771,67 +948,75 @@
         }
 
         .contact-info h3 {
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             color: var(--primary-color);
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
         .contact-item {
             display: flex;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            padding: 1.5rem;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            padding: 2rem;
             background: var(--light-bg);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            border-left: 4px solid transparent;
+            border-radius: 15px;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border-left: 5px solid transparent;
         }
 
         .contact-item:hover {
             background: white;
             border-left-color: var(--accent-color);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transform: translateX(15px);
         }
 
         .contact-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--primary-color);
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(26, 95, 63, 0.3);
         }
 
         .contact-text h4 {
             color: var(--text-dark);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            font-size: 1.2rem;
         }
 
         .contact-text p {
             color: var(--text-light);
+            line-height: 1.8;
         }
 
         .contact-text a {
             color: var(--primary-color);
             text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
+            font-weight: 700;
+            transition: all 0.3s ease;
         }
 
         .contact-text a:hover {
             color: var(--accent-color);
+            text-decoration: underline;
         }
 
         .map-container {
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            height: 500px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            height: 550px;
+            border: 2px solid var(--border-color);
         }
 
         #map {
@@ -840,14 +1025,15 @@
         }
 
         .leaflet-control-attribution {
-            background: rgba(255, 255, 255, 0.9) !important;
+            background: rgba(255, 255, 255, 0.95) !important;
+            border-radius: 8px;
         }
 
         /* ==================== FOOTER ==================== */
         footer {
-            background: var(--dark-bg);
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--primary-dark) 100%);
             color: white;
-            padding: 4rem 2rem 2rem;
+            padding: 5rem 2rem 2rem;
         }
 
         .footer-container {
@@ -857,17 +1043,19 @@
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-            padding-bottom: 3rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 4rem;
+            margin-bottom: 4rem;
+            padding-bottom: 4rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
         }
 
         .footer-section h4 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
             color: var(--accent-color);
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
         .footer-section ul {
@@ -875,34 +1063,37 @@
         }
 
         .footer-section ul li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
         }
 
         .footer-section a {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            font-weight: 500;
         }
 
         .footer-section a:hover {
             color: var(--accent-color);
+            transform: translateX(5px);
         }
 
         .footer-section p {
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.9;
         }
 
         .social-links {
             display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
         }
 
         .social-link {
-            width: 40px;
-            height: 40px;
-            background: var(--primary-color);
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -910,22 +1101,27 @@
             color: white;
             text-decoration: none;
             transition: all 0.3s ease;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(26, 95, 63, 0.3);
         }
 
         .social-link:hover {
             background: var(--accent-color);
-            transform: translateY(-3px);
+            transform: translateY(-5px) rotate(360deg);
+            box-shadow: 0 6px 25px rgba(255, 107, 53, 0.4);
         }
 
         .footer-bottom {
             text-align: center;
-            padding-top: 2rem;
-            color: rgba(255, 255, 255, 0.7);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 3rem;
+            color: rgba(255, 255, 255, 0.8);
+            border-top: 2px solid rgba(255, 255, 255, 0.1);
         }
 
         .footer-bottom p {
-            margin: 0.5rem 0;
+            margin: 0.8rem 0;
+            font-weight: 500;
+            letter-spacing: 0.3px;
         }
 
         /* ==================== RESPONSIVE DESIGN ==================== */
@@ -946,8 +1142,8 @@
                 width: 100%;
                 flex-direction: column;
                 background: var(--primary-color);
-                padding: 1.5rem;
-                gap: 1rem;
+                padding: 2rem 1.5rem;
+                gap: 1.5rem;
             }
 
             nav ul.active {
@@ -960,40 +1156,60 @@
 
             .hero {
                 margin-top: 120px;
+                padding: 3rem 1.5rem;
             }
 
             .hero-content {
                 grid-template-columns: 1fr;
-                padding: 0;
+                gap: 2.5rem;
             }
 
             .hero-text h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
+            }
+
+            .hero-text > .subtitle {
+                font-size: 1.1rem;
             }
 
             .hero-text p {
                 font-size: 1rem;
             }
 
-            .hero-image {
+            .hero-visual {
                 height: 350px;
+                padding: 2rem;
+            }
+
+            .visual-icon {
+                font-size: 3.5rem;
             }
 
             .hero-buttons {
                 flex-direction: column;
+                gap: 1rem;
             }
 
             .btn-primary, .btn-secondary {
                 width: 100%;
                 text-align: center;
+                padding: 1rem 2rem;
             }
 
             .section-header h2 {
-                font-size: 2rem;
+                font-size: 2.2rem;
+            }
+
+            .section-header p {
+                font-size: 1rem;
             }
 
             .quote-content {
                 grid-template-columns: 1fr;
+            }
+
+            .quote-form-wrapper {
+                padding: 2rem;
             }
 
             .contact-content {
@@ -1012,26 +1228,40 @@
                 grid-template-columns: 1fr;
             }
 
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
             .map-container {
                 height: 400px;
             }
 
             .footer-content {
                 grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .benefit-item {
+                gap: 1.5rem;
+                padding: 1.5rem;
             }
         }
 
         @media (max-width: 480px) {
             .hero-text h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
 
             .logo {
                 font-size: 1.3rem;
             }
 
+            .logo i {
+                font-size: 1.8rem;
+            }
+
             .section-header h2 {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
             }
 
             .quote-form-wrapper {
@@ -1044,16 +1274,33 @@
 
             .benefit-item {
                 gap: 1rem;
-                padding: 1rem;
+                padding: 1.2rem;
             }
 
-            .hero-buttons {
-                gap: 1rem;
+            .service-card {
+                padding: 2rem;
+            }
+
+            .service-icon {
+                font-size: 3rem;
+                width: 80px;
+                height: 80px;
             }
 
             .btn-primary, .btn-secondary {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.9rem;
+                padding: 0.9rem 1.5rem;
+                font-size: 0.95rem;
+            }
+
+            .contact-item {
+                gap: 1.2rem;
+                padding: 1.5rem;
+            }
+
+            .contact-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
             }
         }
 
@@ -1061,7 +1308,7 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -1070,7 +1317,7 @@
         }
 
         .fade-in-up {
-            animation: fadeInUp 0.6s ease;
+            animation: fadeInUp 0.7s ease;
         }
 
         /* ==================== UTILITY CLASSES ==================== */
@@ -1082,14 +1329,6 @@
 
         .text-center {
             text-align: center;
-        }
-
-        .mt-5 {
-            margin-top: 3rem;
-        }
-
-        .mb-5 {
-            margin-bottom: 3rem;
         }
     </style>
 </head>
@@ -1117,17 +1356,16 @@
         <div class="nav-container">
             <a href="#" class="logo">
                 <i class="fas fa-hard-hat"></i>
-                A&J Insulation & Roofing
+                A&J Roofing & Insulation
             </a>
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
                     <li><a href="#quote">Quote</a></li>
                     <li><a href="#reviews">Reviews</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="#contact" class="cta-button">Get Started</a></li>
+                    <li><a href="#quote" class="cta-button">Get Free Quote</a></li>
                 </ul>
             </nav>
             <div class="menu-toggle" id="menuToggle">
@@ -1142,19 +1380,26 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Professional Insulation & Roofing Services</h1>
-                <p>Expert craftsmanship in attic insulation, roof repair, installation, and water proofing. Serving Voorhees Township, NJ with excellence and professionalism.</p>
+                <div class="subtitle">Excellence in Roofing & Insulation</div>
+                <h1>Premium Home Protection Services</h1>
+                <p>Expert attic insulation, professional roofing solutions, and water proofing services. Transform your home's comfort and value with our specialized team in Voorhees Township, NJ.</p>
                 <div class="hero-buttons">
-                    <a href="#quote" class="btn-primary">Get Free Quote</a>
-                    <a href="tel:+15512504084" class="btn-secondary">Call Now</a>
+                    <a href="#quote" class="btn-primary">Get Free Quote Today</a>
+                    <a href="tel:+15512504084" class="btn-secondary">Call Now: +1 (551) 250-4084</a>
                 </div>
                 <div class="rating-badge">
-                    <div class="stars">★★★★★ 4.6 Stars</div>
-                    <div>Trusted by 500+ Homeowners</div>
+                    <div class="stars">★★★★★ 4.6 STARS</div>
+                    <p>Trusted by 500+ Satisfied Homeowners</p>
                 </div>
             </div>
-            <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80" alt="Professional roofing installation">
+            <div class="hero-visual">
+                <div class="visual-content">
+                    <div class="visual-icon"><i class="fas fa-home"></i></div>
+                    <div class="visual-text">
+                        <h3>Professional Excellence</h3>
+                        <p>Certified technicians with 15+ years of expertise</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1163,90 +1408,79 @@
     <section class="services" id="services">
         <div class="services-container">
             <div class="section-header">
-                <h2>Our Premium Services</h2>
-                <p>Comprehensive solutions for all your insulation and roofing needs</p>
+                <div class="section-label">Our Services</div>
+                <h2>Comprehensive Home Solutions</h2>
+                <p>Complete range of professional insulation, roofing, and water proofing services designed to enhance your home's comfort, efficiency, and durability</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-home"></i></div>
                     <h3>Attic Insulation</h3>
-                    <p>Premium attic insulation and spray foam installation for maximum energy efficiency and comfort</p>
+                    <p>State-of-the-art attic insulation and spray foam installation for maximum energy efficiency, year-round comfort, and significant utility savings</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-broom"></i></div>
                     <h3>Attic Cleaning</h3>
-                    <p>Complete attic remediation, sanitizing, and debris removal for a safe and healthy space</p>
+                    <p>Complete attic remediation, thorough sanitizing, and professional debris removal ensuring a safe, healthy, and clean attic space</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-water"></i></div>
                     <h3>Water Proofing</h3>
-                    <p>Expert water proofing solutions to protect your property from moisture and damage</p>
+                    <p>Advanced water proofing solutions protecting your property from moisture damage, leaks, and long-term structural issues</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-wrench"></i></div>
                     <h3>Roof Repair</h3>
-                    <p>Professional roof repair services for all types of roofing materials and issues</p>
+                    <p>Expert roof repair services for all roofing materials with fast, reliable solutions and comprehensive damage assessment</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-hammer"></i></div>
                     <h3>Roof Installation</h3>
-                    <p>Expert roof installation with premium materials and superior craftsmanship</p>
+                    <p>Professional roof installation using premium materials and expert craftsmanship to enhance your home's protection and curb appeal</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-sync"></i></div>
                     <h3>Roof Replacement</h3>
-                    <p>Complete roof replacement services to restore and enhance your property value</p>
+                    <p>Complete roof replacement services restoring protection and significantly enhancing your property's value and aesthetic appeal</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-search"></i></div>
                     <h3>Roof Inspection</h3>
-                    <p>Thorough roof inspections with detailed reports and maintenance recommendations</p>
+                    <p>Thorough professional roof inspections with detailed reports, maintenance recommendations, and preventative solutions</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-droplet"></i></div>
                     <h3>Gutter Services</h3>
-                    <p>Complete gutter installation, cleaning, and maintenance services</p>
+                    <p>Complete gutter installation, professional cleaning, and reliable maintenance services protecting your home's foundation</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-cloud-bolt"></i></div>
                     <h3>Storm Damage</h3>
-                    <p>Fast emergency response for storm damage assessment and professional restoration</p>
+                    <p>Fast emergency response for storm damage assessment and professional restoration services with insurance support</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ==================== GALLERY SECTION ==================== -->
-    <section class="gallery" id="gallery">
-        <div class="gallery-container">
-            <div class="section-header">
-                <h2>Our Work Showcase</h2>
-                <p>See examples of our exceptional craftsmanship and completed projects</p>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80" alt="Professional roof installation">
-                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+    <!-- ==================== STATS SECTION ==================== -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Satisfied Homeowners</div>
                 </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1581092918090-dd7910ee1914?w=600&q=80" alt="Expert roofing work">
-                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                <div class="stat-card">
+                    <div class="stat-number">4.6★</div>
+                    <div class="stat-label">Average Rating</div>
                 </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1581092161562-40038f5c4b00?w=600&q=80" alt="Attic insulation installation">
-                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Years Experience</div>
                 </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1587621881583-38da43be91cc?w=600&q=80" alt="Water proofing services">
-                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80" alt="Gutter installation">
-                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1581092916550-e323807046e1?w=600&q=80" alt="Completed roofing project">
-                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Customer Satisfaction</div>
                 </div>
             </div>
         </div>
@@ -1256,32 +1490,32 @@
     <section class="quote" id="quote">
         <div class="quote-container">
             <div class="quote-header">
-                <h2>Get Your Free Quote</h2>
-                <p>Fill out the form below and let our experts provide you with a detailed, no-obligation quote</p>
+                <h2>Get Your Free Professional Quote</h2>
+                <p>Fill out the form below for a detailed, no-obligation assessment from our expert team</p>
             </div>
             <div class="quote-content">
                 <div class="quote-form-wrapper">
                     <h3>Request Your Quote</h3>
-                    <p>Professional assessment and transparent pricing</p>
+                    <p>Expert evaluation with transparent, competitive pricing</p>
                     <form id="quoteForm">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name">Full Name *</label>
-                                <input type="text" id="name" name="name" required>
+                                <input type="text" id="name" name="name" required placeholder="Your Name">
                             </div>
                             <div class="form-group">
                                 <label for="email">Email Address *</label>
-                                <input type="email" id="email" name="email" required>
+                                <input type="email" id="email" name="email" required placeholder="Your Email">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="phone">Phone Number *</label>
-                                <input type="tel" id="phone" name="phone" required>
+                                <input type="tel" id="phone" name="phone" required placeholder="(555) 000-0000">
                             </div>
                             <div class="form-group">
                                 <label for="address">Address *</label>
-                                <input type="text" id="address" name="address" required>
+                                <input type="text" id="address" name="address" required placeholder="Your Address">
                             </div>
                         </div>
                         <div class="form-group">
@@ -1301,7 +1535,7 @@
                         </div>
                         <div class="form-group">
                             <label for="details">Project Details</label>
-                            <textarea id="details" name="details" placeholder="Tell us about your project..."></textarea>
+                            <textarea id="details" name="details" placeholder="Describe your project and any specific concerns..."></textarea>
                         </div>
                         <button type="submit" class="form-submit">Get Free Quote</button>
                     </form>
@@ -1311,42 +1545,42 @@
                         <div class="benefit-icon"><i class="fas fa-check-circle"></i></div>
                         <div class="benefit-content">
                             <h4>Free Professional Assessment</h4>
-                            <p>Our experts conduct thorough inspections to understand your specific needs</p>
+                            <p>Expert technicians conduct thorough inspections to understand your specific needs and provide tailored solutions</p>
                         </div>
                     </div>
                     <div class="benefit-item">
                         <div class="benefit-icon"><i class="fas fa-handshake"></i></div>
                         <div class="benefit-content">
                             <h4>Transparent Pricing</h4>
-                            <p>No hidden costs, no surprises - just honest, competitive pricing</p>
+                            <p>No hidden costs or surprises — honest, competitive pricing with detailed breakdowns upfront</p>
                         </div>
                     </div>
                     <div class="benefit-item">
                         <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
                         <div class="benefit-content">
-                            <h4>Warranty Protection</h4>
-                            <p>All our work is backed by comprehensive warranties and guarantees</p>
+                            <h4>Comprehensive Warranty</h4>
+                            <p>All work backed by extensive warranties and guarantees for complete peace of mind</p>
                         </div>
                     </div>
                     <div class="benefit-item">
                         <div class="benefit-icon"><i class="fas fa-star"></i></div>
                         <div class="benefit-content">
                             <h4>Expert Team</h4>
-                            <p>Trained professionals with years of experience in all services</p>
+                            <p>Certified professionals with 15+ years of experience delivering superior craftsmanship on every project</p>
                         </div>
                     </div>
                     <div class="benefit-item">
                         <div class="benefit-icon"><i class="fas fa-truck"></i></div>
                         <div class="benefit-content">
-                            <h4>Quick Response</h4>
-                            <p>We respond promptly to all inquiries and schedule convenient appointments</p>
+                            <h4>Fast Response Times</h4>
+                            <p>We respond promptly to all inquiries and schedule convenient appointments suited to your schedule</p>
                         </div>
                     </div>
                     <div class="benefit-item">
                         <div class="benefit-icon"><i class="fas fa-clock"></i></div>
                         <div class="benefit-content">
                             <h4>Flexible Scheduling</h4>
-                            <p>We work around your schedule with flexible appointment times</p>
+                            <p>Work around your schedule with flexible appointment times and emergency storm damage response</p>
                         </div>
                     </div>
                 </div>
@@ -1358,14 +1592,15 @@
     <section class="reviews" id="reviews">
         <div class="reviews-container">
             <div class="section-header">
-                <h2>Customer Reviews</h2>
-                <p>Trusted by hundreds of satisfied homeowners</p>
+                <div class="section-label">Client Testimonials</div>
+                <h2>What Our Customers Say</h2>
+                <p>Thousands of satisfied homeowners trust A&J for exceptional service and professional results</p>
             </div>
             <div class="reviews-grid">
                 <div class="review-card">
                     <div class="review-stars">★★★★★</div>
                     <div class="review-text">
-                        "I had a great experience with A&J Attic Insulation Services & Roofing Services. Frank, the technician, was extremely professional and knowledgeable. He walked me through the entire attic insulation and spray foam process, explaining how it would improve my home's energy efficiency and comfort. The team worked diligently, ensuring the job was done correctly and on time. I've already noticed a significant improvement in temperature regulation, and my energy bills are lower. The roofing service was equally impressive, with high-quality materials and expert craftsmanship. I highly recommend them for anyone in need of attic insulation, spray foam, or roofing services!"
+                        "I had a great experience with A&J Attic Insulation Services & Roofing Services. Frank, the technician, was extremely professional and knowledgeable. He walked me through the entire attic insulation and spray foam process, explaining how it would improve my home's energy efficiency and comfort. The team worked diligently, ensuring the job was done correctly and on time. I've already noticed a significant improvement in temperature regulation, and my energy bills are lower. The roofing service was equally impressive, with high-quality materials and expert craftsmanship. I highly recommend them!"
                     </div>
                     <div class="review-author">
                         <div class="review-avatar">M</div>
@@ -1379,7 +1614,7 @@
                 <div class="review-card">
                     <div class="review-stars">★★★★★</div>
                     <div class="review-text">
-                        "Justin and his team were amazing. They were very nice and answered all of our questions, and helped fix up some of our lights that fell out while the insulation was being installed. They also let us see the work at the end, and it looked great. Thanks A&J Attic Insulation Services & Roofing Services! Job of removal, sanitizing & Water Proofing and installation of new insulation was done perfectly!"
+                        "Justin and his team were amazing. They were very nice and answered all of our questions, and helped fix up some of our lights that fell out while the insulation was being installed. They also let us see the work at the end, and it looked great. Job of removal, sanitizing & Water Proofing and installation of new insulation was done perfectly with exceptional attention to detail and professionalism!"
                     </div>
                     <div class="review-author">
                         <div class="review-avatar">S</div>
@@ -1393,7 +1628,7 @@
                 <div class="review-card">
                     <div class="review-stars">★★★★★</div>
                     <div class="review-text">
-                        "Ben and the crew installed a new roof on our remodel project several years back and we have been very happy with the work they did. I had a recent concern about one of the vents and although well past the warranty period, he sent someone immediately to check it out with no charge. A&J Attic Insulation Services & Roofing Services is truly into customer service!"
+                        "Ben and the crew installed a new roof on our remodel project several years back and we have been very happy with the work they did. I had a recent concern about one of the vents and although well past the warranty period, he sent someone immediately to check it out with no charge. A&J Attic Insulation Services & Roofing Services is truly into customer service and goes above and beyond expectations!"
                     </div>
                     <div class="review-author">
                         <div class="review-avatar">R</div>
@@ -1407,7 +1642,7 @@
                 <div class="review-card">
                     <div class="review-stars">★★★★★</div>
                     <div class="review-text">
-                        "We had a rodent issue that was ongoing for months. We tried everything possible but had no luck! Until A&J Attic Insulation Services & Roofing Services completely cleaned and remediated our attic. By getting to the root of the issue we can finally stop hearing noises all night! Thank you Jose and crew for the absolutely best service."
+                        "We had a rodent issue that was ongoing for months. We tried everything possible but had no luck! Until A&J Attic Insulation Services & Roofing Services completely cleaned and remediated our attic. By getting to the root of the issue we can finally stop hearing noises all night! Thank you Jose and crew for the absolutely best service and comprehensive solution."
                     </div>
                     <div class="review-author">
                         <div class="review-avatar">J</div>
@@ -1421,7 +1656,7 @@
                 <div class="review-card">
                     <div class="review-stars">★★★★★</div>
                     <div class="review-text">
-                        "I hired this company for attic cleaning after noticing dust and debris in my attic. The team arrived on time, inspected the area thoroughly, and discussed several attic maintenance recommendations. They explained how spray foam and upgraded foam insulation could improve energy efficiency and comfort throughout the home. The technicians also shared information about roofing cleaning and the importance of regular upkeep. I appreciated the professionalism, clear communication, and attention to detail."
+                        "I hired this company for attic cleaning after noticing dust and debris in my attic. The team arrived on time, inspected the area thoroughly, and discussed several attic maintenance recommendations. They explained how spray foam and upgraded foam insulation could improve energy efficiency and comfort throughout the home. The technicians also shared information about roofing cleaning and the importance of regular upkeep. Outstanding professionalism!"
                     </div>
                     <div class="review-author">
                         <div class="review-avatar">D</div>
@@ -1435,7 +1670,7 @@
                 <div class="review-card">
                     <div class="review-stars">★★★★★</div>
                     <div class="review-text">
-                        "After moving into an older home, I scheduled an Attic inspection with this company to assess its condition. Their technicians were thorough, professional, and very knowledgeable. The Attic Services included complete cleaning, ventilation improvements, and quality repair work. Ryan walked me through the attic and explained the issues they discovered. The crew also completed extensive mold cleaning and effective remediation, ensuring the attic was safe and healthy. They recommended roofing repair services to help prevent future moisture problems."
+                        "After moving into an older home, I scheduled an Attic inspection to assess its condition. Their technicians were thorough, professional, and very knowledgeable. The Attic Services included complete cleaning, ventilation improvements, and quality repair work. They completed extensive mold cleaning and effective remediation, ensuring the attic was safe and healthy. Highly recommended!"
                     </div>
                     <div class="review-author">
                         <div class="review-avatar">K</div>
@@ -1453,18 +1688,20 @@
     <section class="contact" id="contact">
         <div class="contact-container">
             <div class="section-header">
-                <h2>Get In Touch</h2>
-                <p>Contact us today for a free consultation and quote</p>
+                <div class="section-label">Get in Touch</div>
+                <h2>Contact Information</h2>
+                <p>Reach out today for a free consultation and expert assessment of your needs</p>
             </div>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>Contact Information</h3>
+                    <h3>We're Here to Help</h3>
                     
                     <div class="contact-item">
                         <div class="contact-icon"><i class="fas fa-phone"></i></div>
                         <div class="contact-text">
                             <h4>Phone</h4>
                             <p><a href="tel:+15512504084">+1 (551) 250-4084</a></p>
+                            <p style="font-size: 0.9rem; margin-top: 0.3rem;">Available 7am - 9:30pm Mon-Sat</p>
                         </div>
                     </div>
 
@@ -1479,7 +1716,7 @@
                     <div class="contact-item">
                         <div class="contact-icon"><i class="fas fa-clock"></i></div>
                         <div class="contact-text">
-                            <h4>Hours</h4>
+                            <h4>Business Hours</h4>
                             <p>Monday - Saturday: 7:00 AM - 9:30 PM<br>Sunday: Closed</p>
                         </div>
                     </div>
@@ -1506,12 +1743,12 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>About A&J</h4>
-                    <p>A&J Attic Insulation Services & Roofing Services is your trusted partner for professional insulation, roofing, and water proofing solutions in Voorhees Township, NJ. With years of expertise and a 4.6-star rating, we're committed to excellence.</p>
+                    <p>A&J Attic Insulation Services & Roofing Services is your trusted partner for professional insulation, roofing, and water proofing solutions in Voorhees Township, NJ. With years of expertise and a 4.6-star rating, we're committed to excellence and customer satisfaction.</p>
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
 
@@ -1524,6 +1761,7 @@
                         <li><a href="#services">Roof Repair</a></li>
                         <li><a href="#services">Roof Installation</a></li>
                         <li><a href="#services">Roof Replacement</a></li>
+                        <li><a href="#services">Roof Inspection</a></li>
                         <li><a href="#services">Gutter Services</a></li>
                         <li><a href="#services">Storm Damage</a></li>
                     </ul>
@@ -1534,10 +1772,11 @@
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#services">Services</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
                         <li><a href="#quote">Get Quote</a></li>
                         <li><a href="#reviews">Reviews</a></li>
                         <li><a href="#contact">Contact</a></li>
+                        <li><a href="#" style="color: var(--accent-color);">Privacy Policy</a></li>
+                        <li><a href="#" style="color: var(--accent-color);">Terms of Service</a></li>
                     </ul>
                 </div>
 
@@ -1546,15 +1785,20 @@
                     <ul>
                         <li><a href="tel:+15512504084">+1 (551) 250-4084</a></li>
                         <li><a href="mailto:info@ajinsulation.com">info@ajinsulation.com</a></li>
-                        <li><p>1 Lippincott Ave<br>Voorhees Township, NJ 08043</p></li>
-                        <li><a href="#quote" style="color: var(--accent-color);">Get Free Quote</a></li>
+                        <li style="color: rgba(255, 255, 255, 0.8); margin-top: 1rem;">
+                            <strong>1 Lippincott Ave</strong><br>
+                            Voorhees Township, NJ 08043
+                        </li>
+                        <li style="margin-top: 1rem;">
+                            <a href="#quote" style="color: var(--accent-color); font-weight: 700;">Get Free Quote →</a>
+                        </li>
                     </ul>
                 </div>
             </div>
 
             <div class="footer-bottom">
                 <p>&copy; 2026 A&J Attic Insulation Services & Roofing Services. All Rights Reserved.</p>
-                <p>Serving Voorhees Township, NJ with Excellence and Professionalism</p>
+                <p>Professional Roofing & Insulation Services | Voorhees Township, NJ</p>
             </div>
         </div>
     </footer>
@@ -1571,7 +1815,6 @@
             menuToggle.classList.toggle('active');
         });
 
-        // Close menu when a link is clicked
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
@@ -1583,40 +1826,37 @@
         document.addEventListener('DOMContentLoaded', function() {
             const mapElement = document.getElementById('map');
             if (mapElement) {
-                // Initialize map
                 const map = L.map('map').setView([39.8581, -74.8800], 15);
 
-                // Add OpenStreetMap tiles
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     attribution: '© OpenStreetMap contributors',
                     maxZoom: 19
                 }).addTo(map);
 
-                // Add custom marker with popup
                 const customIcon = L.divIcon({
                     html: `<div style="
                         background: linear-gradient(135deg, #1a5f3f 0%, #0f3d27 100%);
                         color: white;
                         border-radius: 50%;
-                        width: 50px;
-                        height: 50px;
+                        width: 60px;
+                        height: 60px;
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        font-size: 24px;
-                        border: 3px solid #ff6b35;
-                        box-shadow: 0 4px 15px rgba(26, 95, 63, 0.4);
+                        font-size: 28px;
+                        border: 4px solid #ff6b35;
+                        box-shadow: 0 6px 20px rgba(26, 95, 63, 0.5);
                     "><i class="fas fa-map-pin"></i></div>`,
-                    iconSize: [50, 50],
+                    iconSize: [60, 60],
                     className: 'custom-marker'
                 });
 
                 const marker = L.marker([39.8581, -74.8800], {icon: customIcon}).addTo(map);
                 marker.bindPopup(`
-                    <div style="font-family: Poppins; text-align: center;">
-                        <h4 style="margin: 0; color: #1a5f3f;">A&J Insulation & Roofing</h4>
-                        <p style="margin: 5px 0; font-size: 0.9rem;">1 Lippincott Ave<br>Voorhees Township, NJ 08043</p>
-                        <a href="tel:+15512504084" style="color: #ff6b35; font-weight: 600; text-decoration: none;">+1 (551) 250-4084</a>
+                    <div style="font-family: Poppins; text-align: center; padding: 10px;">
+                        <h4 style="margin: 0; color: #1a5f3f; font-size: 1.2rem; font-weight: 800;">A&J Roofing & Insulation</h4>
+                        <p style="margin: 8px 0; font-size: 0.95rem; color: #333;">1 Lippincott Ave<br>Voorhees Township, NJ 08043</p>
+                        <a href="tel:+15512504084" style="color: #ff6b35; font-weight: 700; text-decoration: none; display: inline-block; margin-top: 8px;">📞 +1 (551) 250-4084</a>
                     </div>
                 `).openPopup();
             }
@@ -1628,7 +1868,6 @@
             quoteForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
-                // Get form data
                 const formData = {
                     name: document.getElementById('name').value,
                     email: document.getElementById('email').value,
@@ -1638,26 +1877,19 @@
                     details: document.getElementById('details').value
                 };
 
-                // Show success message
                 const button = quoteForm.querySelector('.form-submit');
                 const originalText = button.innerText;
                 button.innerText = '✓ Quote Request Sent!';
                 button.style.background = 'linear-gradient(135deg, #10b981, #059669)';
                 
-                // Reset form
                 quoteForm.reset();
 
-                // Restore button after 3 seconds
                 setTimeout(() => {
                     button.innerText = originalText;
                     button.style.background = '';
                 }, 3000);
 
-                // Log the form data (in production, this would be sent to a server)
                 console.log('Quote Request:', formData);
-
-                // Optional: Send to a server endpoint
-                // fetch('/api/quote', { method: 'POST', body: JSON.stringify(formData) })
             });
         }
 
@@ -1689,14 +1921,13 @@
         const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                    entry.target.style.animation = 'fadeInUp 0.7s ease forwards';
                     observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        // Observe service cards and review cards
-        document.querySelectorAll('.service-card, .review-card, .benefit-item').forEach(el => {
+        document.querySelectorAll('.service-card, .review-card, .benefit-item, .stat-card').forEach(el => {
             observer.observe(el);
         });
 
@@ -1708,9 +1939,9 @@
             const currentScroll = window.pageYOffset;
             
             if (currentScroll > 100) {
-                header.style.boxShadow = '0 2px 20px rgba(26, 95, 63, 0.25)';
+                header.style.boxShadow = '0 4px 25px rgba(26, 95, 63, 0.25)';
             } else {
-                header.style.boxShadow = '0 2px 20px rgba(26, 95, 63, 0.15)';
+                header.style.boxShadow = '0 4px 25px rgba(26, 95, 63, 0.2)';
             }
             
             lastScroll = currentScroll;
@@ -1762,7 +1993,6 @@
             spans[2].style.transform = spans[2].style.transform ? '' : 'rotate(-45deg) translate(7px, -7px)';
         });
 
-        // Close menu when clicking outside
         document.addEventListener('click', function(e) {
             if (!e.target.closest('header')) {
                 navMenu.classList.remove('active');
